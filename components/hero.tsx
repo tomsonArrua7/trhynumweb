@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { Countdown } from "./countdown"
 
 export function Hero() {
   return (
@@ -55,14 +56,12 @@ export function Hero() {
         </p>
 
         {/* Bottom ornamental rule */}
-        <div className="my-10 flex items-center gap-4 w-full max-w-xs">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border/70" />
-          <div className="h-1.5 w-1.5 rotate-45 bg-border" />
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border/70" />
-        </div>
+        {/* Countdown */}
+        <Countdown />
 
         {/* CTA */}
-        <a href="#descargas">
+        <div className="mt-12">
+          <a href="#descargas">
           <button
             className="group relative h-16 w-56 overflow-hidden border-2 border-primary bg-primary/10 font-serif text-base font-bold tracking-[0.3em] text-white uppercase transition-all duration-300 hover:bg-primary hover:shadow-[0_0_40px_rgba(180,0,0,0.5)]"
           >
