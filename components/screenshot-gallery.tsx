@@ -1,57 +1,92 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const screenshots = [
-  { id: 1, title: "Agite en Ullathorpe" },
-  { id: 2, title: "Arenas de Reto" },
-  { id: 3, title: "Invasiones" },
-  { id: 4, title: "Duelos Apostados" },
-  { id: 5, title: "Comercio" },
-  { id: 6, title: "Exploración" },
+  { id: 1, title: "Captura 1" },
+  { id: 2, title: "Captura 2" },
+  { id: 3, title: "Captura 3" },
+  { id: 4, title: "Captura 4" },
+  { id: 5, title: "Captura 5" },
+  { id: 6, title: "Captura 6" },
 ]
 
 export function ScreenshotGallery() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const next = () => setCurrentIndex((prev) => (prev + 1) % screenshots.length)
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length)
+
   return (
-    <section className="texture-stone relative py-24 bg-background">
+    <section className="texture-stone relative py-24 bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
-          <h2 className="font-serif text-4xl font-bold tracking-[0.2em] text-foreground uppercase">
-            Capturas de <span className="text-primary">Pantalla</span>
+        <div className="mb-12 text-center">
+          <h2 className="font-serif text-3xl font-bold tracking-[0.2em] text-foreground uppercase">
+            Galería de <span className="text-primary">Imágenes</span>
           </h2>
           <div className="mt-4 mx-auto h-1 w-24 bg-primary" />
-          <p className="mt-6 font-serif text-xs tracking-[0.3em] text-muted-foreground uppercase">
-            Momentos épicos en el continente
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {screenshots.map((shot) => (
+        {/* Carousel Container */}
+        <div className="relative mx-auto max-w-5xl">
+          {/* Main Image View */}
+          <div className="texture-iron relative aspect-[4/3] sm:aspect-video w-full overflow-hidden border-4 border-border bg-black shadow-2xl">
+            <div className="rivet top-2 left-2" />
+            <div className="rivet top-2 right-2" />
+            <div className="rivet bottom-2 left-2" />
+            <div className="rivet bottom-2 right-2" />
+            
             <div 
-              key={shot.id} 
-              className="texture-iron group relative aspect-video overflow-hidden border-2 border-border bg-card transition-all hover:border-primary/50"
+              className="flex h-full transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              <div className="rivet top-1 left-1 w-1 h-1" />
-              <div className="rivet top-1 right-1 w-1 h-1" />
-              <div className="rivet bottom-1 left-1 w-1 h-1" />
-              <div className="rivet bottom-1 right-1 w-1 h-1" />
-              
-              <Image
-                src={`/assets/foto${shot.id}.png`}
-                alt={shot.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
-              />
-              
-              {/* Overlay on hover */}
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="p-4">
-                  <p className="font-serif text-xs font-bold tracking-[0.2em] text-primary uppercase">
-                    {shot.title}
-                  </p>
+              {screenshots.map((shot) => (
+                <div key={shot.id} className="relative h-full w-full flex-shrink-0">
+                  <Image
+                    src={`/assets/foto${shot.id}.png`}
+                    alt={shot.title}
+                    fill
+                    className="object-contain p-2"
+                    priority={shot.id === 1}
+                  />
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+
+            {/* Overlay Navigation Buttons */}
+            <button 
+              onClick={prev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 p-2 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-all z-20"
+            >
+              <ChevronLeft className="h-8 w-8" />
+            </button>
+            <button 
+              onClick={next}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 p-2 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-all z-20"
+            >
+              <ChevronRight className="h-8 w-8" />
+            </button>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="mt-6 flex justify-center gap-3">
+            {screenshots.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`h-2 w-8 transition-all ${
+                  i === currentIndex ? "bg-primary shadow-[0_0_10px_rgba(255,0,0,0.5)]" : "bg-border hover:bg-primary/50"
+                }`}
+              />
+            ))}
+          </div>
         </div>
+
+        <p className="mt-8 text-center font-serif text-[10px] tracking-[0.4em] text-muted-foreground uppercase animate-pulse">
+          Deslizá para ver el mundo de Trhynum
+        </p>
       </div>
     </section>
   )
