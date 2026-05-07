@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { VideoShowcase } from "@/components/video-showcase"
 import { Features } from "@/components/features"
 import { Gallery } from "@/components/gallery"
 import { Downloads } from "@/components/downloads"
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen bg-background selection:bg-primary/30 selection:text-primary-foreground">
       <Navbar />
       <Hero />
+      <VideoShowcase />
       <Features />
       <Gallery />
       <Downloads />
