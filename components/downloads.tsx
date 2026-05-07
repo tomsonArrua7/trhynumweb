@@ -11,13 +11,13 @@ export function Downloads() {
     },
     { 
       name: "Mirror Mediafire", 
-      size: "1.2 GB", 
+      size: "40 MB", 
       description: "Opción de descarga alternativa.",
       url: "https://www.mediafire.com/file/ejemplo" 
     },
     { 
       name: "Mirror Google Drive", 
-      size: "1.2 GB", 
+      size: "40 MB", 
       description: "Opción de descarga alternativa.",
       url: "https://drive.google.com/open?id=ejemplo" 
     },
@@ -26,7 +26,7 @@ export function Downloads() {
   const requirements = [
     { icon: <Cpu className="h-5 w-5" />, label: "CPU", value: "Intel Core i3 o superior" },
     { icon: <Memory className="h-5 w-5" />, label: "RAM", value: "4 GB DDR3" },
-    { icon: <HardDrive className="h-5 w-5" />, label: "Disco", value: "2 GB espacio libre" },
+    { icon: <HardDrive className="h-5 w-5" />, label: "Disco", value: "40 MB espacio libre" },
   ]
 
   return (
