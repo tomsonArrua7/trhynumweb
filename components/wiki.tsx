@@ -323,7 +323,7 @@ export function Wiki() {
         {/* Footer note */}
         <div className="mt-20 border-t border-border/50 pt-8 text-center">
           <p className="font-serif text-sm text-muted-foreground italic">
-            ¿Dudas? Consultá en Discord o en el chat global.
+            ¿Dudas? Consultá en el <a href="https://discord.gg/eS7eeDeSGT" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Canal de Ayuda (Discord)</a>.
             <br />
             <span className="text-primary/70">La comunidad orienta, pero el frag lo ganás vos.</span>
           </p>

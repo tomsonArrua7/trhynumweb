@@ -70,6 +70,14 @@ export function Hero() {
               Jugar Ahora
             </button>
           </a>
+          <a 
+            href="https://discord.gg/eS7eeDeSGT" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="mt-4 block font-serif text-[10px] tracking-[0.2em] text-primary hover:text-white transition-colors uppercase font-bold"
+          >
+            [ Canal de Ayuda / Discord ]
+          </a>
         </div>
 
         {/* Scroll hint */}
