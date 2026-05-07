@@ -40,18 +40,18 @@ export function Hero() {
         </div>
 
         {/* Server label */}
-        <p className="mb-4 font-serif text-[10px] font-bold tracking-[0.5em] text-primary/80 uppercase">
-          Servidor Privado · Argentum Online · Mod Fénix DX8
+        <p className="mb-4 px-4 font-serif text-[8px] sm:text-[10px] font-bold tracking-[0.3em] sm:tracking-[0.5em] text-primary/80 uppercase">
+          Servidor Público · Hosteado en Argentina · Mod Fénix DX8
         </p>
 
         {/* Main title */}
-        <h1 className="font-serif text-7xl font-bold tracking-tight text-foreground sm:text-8xl md:text-9xl"
+        <h1 className="font-serif text-5xl sm:text-7xl md:text-9xl font-bold tracking-tight text-foreground"
             style={{ textShadow: "0 0 40px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1)" }}>
           TrhynumAO
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-6 font-serif text-base tracking-[0.3em] text-foreground/60 uppercase sm:text-lg">
+        <p className="mt-6 px-4 font-serif text-xs sm:text-base tracking-[0.2em] sm:tracking-[0.3em] text-foreground/60 uppercase sm:text-lg">
           Agite Puro &nbsp;·&nbsp; Construido de Cero
         </p>
 

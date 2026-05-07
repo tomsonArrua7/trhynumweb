@@ -24,12 +24,12 @@ export function Staff() {
               </h3>
             </div>
 
-            <div className="texture-iron p-8 flex items-center gap-8">
+            <div className="texture-iron p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 sm:gap-8">
               <div className="rivet top-2 left-2" />
               <div className="rivet top-2 right-2" />
               <div className="rivet bottom-2 left-2" />
               <div className="rivet bottom-2 right-2" />
-
+              
               {/* Avatar */}
               <div className="flex-shrink-0">
                 <div className="relative flex h-20 w-20 items-center justify-center bg-black border-2 border-primary shadow-[0_0_20px_rgba(255,0,0,0.2)]">

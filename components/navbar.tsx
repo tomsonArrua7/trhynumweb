@@ -15,7 +15,7 @@ export function Navbar() {
         <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-6">
           {/* Logo Area */}
           <Link href="/" className="group flex items-center gap-2 transition-transform hover:scale-105">
-            <div className="relative h-12 w-48">
+            <div className="relative h-10 w-32 sm:h-12 sm:w-48">
               <Image 
                 src="/assets/logo_metal.png" 
                 alt="TrhynumAO" 

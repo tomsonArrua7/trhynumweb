@@ -16,10 +16,10 @@ export function Gallery() {
         <p className="mb-8 font-serif text-xs tracking-[0.3em] text-primary/60 uppercase">
           Tesoros del Continente
         </p>
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
           {items.map((item) => (
             <div key={item.id} className="group relative flex flex-col items-center">
-              <div className="relative h-14 w-14 bg-black/40 border border-border/50 transition-all group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(255,0,0,0.1)]">
+              <div className="relative h-12 w-12 sm:h-14 sm:w-14 bg-black/40 border border-border/50 transition-all group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(255,0,0,0.1)]">
                 <Image
                   src={`/assets/${item.id}.bmp`}
                   alt="Item"

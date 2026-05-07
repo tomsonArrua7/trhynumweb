@@ -170,19 +170,19 @@ export function Wiki() {
 
         {/* Section Header */}
         <div className="mb-20 flex flex-col items-center text-center">
-          <div className="relative mb-8 h-40 w-full max-w-2xl overflow-hidden">
+          <div className="relative mb-8 h-48 sm:h-64 w-full max-w-4xl overflow-hidden border-2 border-border shadow-2xl">
             <Image
               src="/assets/wiki_banner.png"
               alt="Biblioteca de Trhynum"
               fill
               className="object-cover brightness-50"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <BookOpen className="mb-2 h-8 w-8 text-primary" />
-              <h2 className="font-serif text-4xl font-bold tracking-[0.2em] text-foreground uppercase">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+              <BookOpen className="mb-2 h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold tracking-[0.1em] sm:tracking-[0.2em] text-foreground uppercase">
                 Biblioteca de <span className="text-primary">Trhynum</span>
               </h2>
-              <p className="mt-2 text-sm tracking-widest text-muted-foreground uppercase">
+              <p className="mt-2 text-[10px] sm:text-sm tracking-widest text-muted-foreground uppercase">
                 Guía Oficial del Servidor
               </p>
             </div>
@@ -219,16 +219,16 @@ export function Wiki() {
 
               {/* Image + intro */}
               {section.image && (
-                <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-3">
-                  <div className="relative h-48 overflow-hidden border-2 border-border md:col-span-1">
+                <div className="mb-8 flex flex-col md:grid md:grid-cols-3 gap-8">
+                  <div className="relative h-48 sm:h-64 overflow-hidden border-2 border-border">
                     <Image src={section.image} alt={section.title} fill className="object-cover brightness-50 grayscale" />
                   </div>
                   <div className="md:col-span-2">
                     {section.content && (
-                      <p className="font-serif text-lg text-foreground/90 leading-relaxed">{section.content}</p>
+                      <p className="font-serif text-base sm:text-lg text-foreground/90 leading-relaxed">{section.content}</p>
                     )}
                     {section.note && (
-                      <p className="mt-4 border-l-2 border-primary/40 pl-4 text-sm italic text-muted-foreground">{section.note}</p>
+                      <p className="mt-4 border-l-2 border-primary/40 pl-4 text-xs sm:text-sm italic text-muted-foreground">{section.note}</p>
                     )}
                   </div>
                 </div>

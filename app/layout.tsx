@@ -15,7 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Trhynum AO - Argentum Online',
-  description: 'Servidor basado en motor DX8 (Mod Fénix). Diseñado para el agite puro y la competencia. Entrá, equipate y dominá el continente de Trhynum.',
+  description: 'Servidor Público - Hosteado en Argentina. Basado en motor DX8 (Mod Fénix). Diseñado para el agite puro y la competencia. Entrá, equipate y dominá el continente de Trhynum.',
   generator: 'v0.app',
   icons: {
     icon: '/assets/Icono.ico',

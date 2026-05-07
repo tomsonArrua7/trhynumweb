@@ -37,13 +37,13 @@ export function Downloads() {
                 <div className="rivet bottom-2 left-2" />
                 <div className="rivet bottom-2 right-2" />
                 
-                <div className="flex items-center justify-between">
-                  <div className="mr-4">
-                    <h3 className="font-serif text-xl font-bold tracking-wider text-foreground">{link.name}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{link.description}</p>
-                    <span className="mt-2 inline-block text-xs font-bold text-primary">{link.size}</span>
+                <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-6">
+                  <div className="text-center sm:text-left">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold tracking-wider text-foreground">{link.name}</h3>
+                    <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{link.description}</p>
+                    <span className="mt-2 inline-block text-[10px] sm:text-xs font-bold text-primary uppercase">{link.size}</span>
                   </div>
-                  <Button className="texture-stone bg-secondary border border-border group-hover:bg-primary group-hover:border-primary transition-colors duration-300">
+                  <Button className="texture-stone w-full sm:w-auto bg-secondary border border-border group-hover:bg-primary group-hover:border-primary transition-colors duration-300">
                     <Download className="h-5 w-5 mr-2" />
                     BAJAR
                   </Button>
