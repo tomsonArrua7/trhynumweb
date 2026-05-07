@@ -14,6 +14,25 @@ import {
 
 const wikiSections = [
   {
+    id: "soporte",
+    icon: Users,
+    title: "Soporte In-game",
+    image: null,
+    content: `¿Necesitás ayuda técnica o denunciar un problema mientras jugás? Contamos con un sistema de soporte directo.`,
+    cards: [
+      {
+        title: "Atención por Game Masters",
+        steps: [
+          "Escribí el comando /SOPORTE seguido de tu consulta.",
+          "Un Game Master recibirá tu llamado y te responderá ahí mismo en el chat.",
+          "Sé breve y claro para que podamos ayudarte más rápido.",
+        ],
+        commands: ["/SOPORTE <mensaje> — llamar a un GM"],
+        note: "Este es el canal oficial para dudas rápidas y problemas dentro del mundo.",
+      },
+    ],
+  },
+  {
     id: "evolucion",
     icon: Zap,
     title: "Evolución y Zonas",
@@ -47,8 +66,8 @@ const wikiSections = [
           "El ganador cobra Oro (x1.5 del precio base) y suma un frag.",
           "Al terminar, ambos son warpeados curados con inventario limpio.",
         ],
-        commands: ["/BLOQRETOS 1 — rechazar retos", "/BLOQRETOS 0 — aceptar retos"],
-        note: "Hay varias arenas simultáneas en la zona de Teleports.",
+        commands: ["/BLOQRETOS 1 — rechazar retos apostados", "/BLOQRETOS 0 — aceptar retos apostados"],
+        note: "También podés gestionar los bloqueos desde el menú de Opciones.",
       },
       {
         title: "Retos Apostados (1v1)",
