@@ -3,9 +3,24 @@ import { Button } from "@/components/ui/button"
 
 export function Downloads() {
   const downloadLinks = [
-    { name: "Cliente Completo", size: "1.2 GB", description: "Incluye instalador y recursos necesarios." },
-    { name: "Mirror Mediafire", size: "1.2 GB", description: "Opción de descarga alternativa." },
-    { name: "Mirror Google Drive", size: "1.2 GB", description: "Opción de descarga alternativa." },
+    { 
+      name: "Descarga Directa", 
+      size: "1.2 GB", 
+      description: "Descarga directa desde nuestro servidor.",
+      url: "/downloads/TrhynumAO.zip" 
+    },
+    { 
+      name: "Mirror Mediafire", 
+      size: "1.2 GB", 
+      description: "Opción de descarga alternativa.",
+      url: "https://www.mediafire.com/file/ejemplo" 
+    },
+    { 
+      name: "Mirror Google Drive", 
+      size: "1.2 GB", 
+      description: "Opción de descarga alternativa.",
+      url: "https://drive.google.com/open?id=ejemplo" 
+    },
   ]
 
   const requirements = [
@@ -43,10 +58,12 @@ export function Downloads() {
                     <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{link.description}</p>
                     <span className="mt-2 inline-block text-[10px] sm:text-xs font-bold text-primary uppercase">{link.size}</span>
                   </div>
-                  <Button className="texture-stone w-full sm:w-auto bg-secondary border border-border group-hover:bg-primary group-hover:border-primary transition-colors duration-300">
-                    <Download className="h-5 w-5 mr-2" />
-                    BAJAR
-                  </Button>
+                  <a href={link.url} download={link.name === "Descarga Directa"} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                    <Button className="texture-stone w-full bg-secondary border border-border group-hover:bg-primary group-hover:border-primary transition-colors duration-300">
+                      <Download className="h-5 w-5 mr-2" />
+                      BAJAR
+                    </Button>
+                  </a>
                 </div>
               </div>
             ))}
