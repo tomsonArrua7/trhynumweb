@@ -23,12 +23,12 @@ const wikiSections = [
       {
         title: "Atención por Game Masters",
         steps: [
-          "Escribí el comando /SOPORTE seguido de tu consulta.",
-          "Un Game Master recibirá tu llamado y te responderá ahí mismo en el chat.",
-          "Sé breve y claro para que podamos ayudarte más rápido.",
+          "Escribí el comando /SOPORTE en el chat.",
+          "Se abrirá un formulario oficial donde podrás redactar tu consulta.",
+          "Una vez enviado, cuando un GM te responda, verás una notificación en la zona inferior derecha de tu interfaz.",
         ],
-        commands: ["/SOPORTE <mensaje> — llamar a un GM"],
-        note: "Este es el canal oficial para dudas rápidas y problemas dentro del mundo.",
+        commands: ["/SOPORTE — abrir formulario de consulta"],
+        note: "Las respuestas quedan registradas en el sistema de notificaciones para que no las pierdas.",
       },
     ],
   },
