@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { VideoShowcase } from "@/components/video-showcase"
-import { Features } from "@/components/features"
+import { ScreenshotGallery } from "@/components/screenshot-gallery"
 import { Gallery } from "@/components/gallery"
 import { Downloads } from "@/components/downloads"
 import { Wiki } from "@/components/wiki"
@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <VideoShowcase />
-      <Features />
+      <ScreenshotGallery />
       <Gallery />
       <Downloads />
       <Wiki />
