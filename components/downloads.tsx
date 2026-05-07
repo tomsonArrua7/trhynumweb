@@ -5,28 +5,28 @@ export function Downloads() {
   const downloadLinks = [
     { 
       name: "Descarga Directa", 
-      size: "2 MB", 
+      size: "47 MB", 
       description: "Descarga directa desde nuestro servidor.",
-      url: "/downloads/TrhynumAO-Instalador.exe" 
+      url: "/downloads/Instalador_TrhynumAO.exe" 
     },
     { 
       name: "Mirror Mediafire", 
-      size: "40 MB", 
+      size: "47 MB", 
       description: "Opción de descarga alternativa.",
-      url: "https://www.mediafire.com/file/ejemplo" 
+      url: "https://www.mediafire.com/file/uzt5yvf7hgblrwl/Instalador_TrhynumAO.exe/file" 
     },
     { 
-      name: "Mirror Google Drive", 
-      size: "40 MB", 
+      name: "Mirror MEGA", 
+      size: "47 MB", 
       description: "Opción de descarga alternativa.",
-      url: "https://drive.google.com/open?id=ejemplo" 
+      url: "#" 
     },
   ]
 
   const requirements = [
     { icon: <Cpu className="h-5 w-5" />, label: "CPU", value: "Intel Core i3 o superior" },
     { icon: <Memory className="h-5 w-5" />, label: "RAM", value: "4 GB DDR3" },
-    { icon: <HardDrive className="h-5 w-5" />, label: "Disco", value: "40 MB espacio libre" },
+    { icon: <HardDrive className="h-5 w-5" />, label: "Disco", value: "200 MB espacio libre" },
   ]
 
   return (
