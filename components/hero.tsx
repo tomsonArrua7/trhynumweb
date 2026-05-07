@@ -1,61 +1,86 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen w-full overflow-hidden">
-      {/* Background Hero Image */}
+
+      {/* Background */}
       <div className="absolute inset-0">
         <Image
           src="/assets/hero_background.png"
-          alt="Dark Fortress"
+          alt="Fortaleza de Trhynum"
           fill
-          className="object-cover brightness-[0.4] contrast-125"
+          className="object-cover brightness-[0.35] contrast-125 saturate-0"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background" />
+        {/* Heavy vignette */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
-      {/* Smoke Overlay Effect */}
-      <div className="smoke-overlay animate-smoke opacity-30" />
+      {/* Rain / scanline texture overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.5) 2px, rgba(255,255,255,0.5) 3px)",
+          backgroundSize: "100% 4px",
+        }}
+      />
 
-      {/* Content Container */}
+      {/* Center content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-        {/* NEW MESSAGE BADGE */}
-        <div className="mb-8 inline-flex animate-pulse-crimson items-center justify-center border-2 border-primary/50 bg-black/80 px-6 py-2 shadow-[0_0_15px_rgba(255,0,0,0.2)]">
-          <span className="font-serif text-sm font-bold tracking-[0.3em] text-primary">
-            TOTALMENTE NUEVO, CONSTRUIDO DE CERO
-          </span>
+
+        {/* Top ornamental rule */}
+        <div className="mb-10 flex items-center gap-4 w-full max-w-xs">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/50" />
+          <div className="h-1.5 w-1.5 rotate-45 bg-primary" />
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/50" />
         </div>
 
-        {/* Core Message */}
-        <h1 className="font-serif text-6xl font-bold tracking-tighter text-foreground sm:text-7xl md:text-8xl lg:text-9xl">
-          <span className="block drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">TrhynumAO</span>
-        </h1>
-        
-        <p className="mt-6 max-w-2xl font-serif text-xl tracking-widest text-foreground/80 sm:text-2xl">
-          Servidor basado en DX8 (Mod Fénix). <span className="text-primary">Agite puro.</span>
+        {/* Server label */}
+        <p className="mb-4 font-serif text-[10px] font-bold tracking-[0.5em] text-primary/80 uppercase">
+          Servidor Privado · Argentum Online · Mod Fénix DX8
         </p>
 
-        {/* CTA Button */}
-        <div className="mt-12">
-          <a href="#descargas">
-            <Button
-              size="lg"
-              className="texture-stone relative h-20 w-64 border-2 border-primary bg-primary text-xl font-bold tracking-[0.2em] text-white transition-all hover:scale-105 hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(255,0,0,0.4)]"
-            >
-              <div className="rivet top-1 left-1" />
-              <div className="rivet top-1 right-1" />
-              <div className="rivet bottom-1 left-1" />
-              <div className="rivet bottom-1 right-1" />
-              JUGAR AHORA
-            </Button>
-          </a>
+        {/* Main title */}
+        <h1 className="font-serif text-7xl font-bold tracking-tight text-foreground sm:text-8xl md:text-9xl"
+            style={{ textShadow: "0 0 40px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1)" }}>
+          TrhynumAO
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-6 font-serif text-base tracking-[0.3em] text-foreground/60 uppercase sm:text-lg">
+          Agite Puro &nbsp;·&nbsp; Construido de Cero
+        </p>
+
+        {/* Bottom ornamental rule */}
+        <div className="my-10 flex items-center gap-4 w-full max-w-xs">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent to-border/70" />
+          <div className="h-1.5 w-1.5 rotate-45 bg-border" />
+          <div className="h-px flex-1 bg-gradient-to-l from-transparent to-border/70" />
         </div>
+
+        {/* CTA */}
+        <a href="#descargas">
+          <button
+            className="group relative h-16 w-56 overflow-hidden border-2 border-primary bg-primary/10 font-serif text-base font-bold tracking-[0.3em] text-white uppercase transition-all duration-300 hover:bg-primary hover:shadow-[0_0_40px_rgba(180,0,0,0.5)]"
+          >
+            {/* Shimmer on hover */}
+            <span className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-[100%]" />
+            Jugar Ahora
+          </button>
+        </a>
+
+        {/* Scroll hint */}
+        <p className="mt-16 font-serif text-[9px] tracking-[0.4em] text-foreground/30 uppercase animate-pulse">
+          ↓ Descubrí el servidor
+        </p>
+
       </div>
 
-      {/* Bottom Heavy Border Shadow */}
-      <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-background to-transparent shadow-[0_-20px_50px_rgba(0,0,0,0.8)]" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 h-40 w-full bg-gradient-to-t from-background to-transparent" />
     </section>
   )
 }

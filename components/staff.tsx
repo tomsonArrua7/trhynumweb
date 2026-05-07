@@ -1,56 +1,75 @@
-import { Crown, Shield, Sword } from "lucide-react"
-
-const staffMembers = [
-  { name: "DarkLord", role: "Administrador", description: "Fundador del servidor y desarrollador principal", icon: Crown },
-  { name: "ShadowMage", role: "Game Master", description: "Encargado de eventos y soporte al jugador", icon: Shield },
-  { name: "IronWarrior", role: "Game Master", description: "Moderación y asistencia en el juego", icon: Shield },
-  { name: "NightBlade", role: "Moderador", description: "Soporte en Discord y foros", icon: Sword },
-]
+import { Crown, Sword } from "lucide-react"
 
 export function Staff() {
   return (
-    <section id="staff" className="texture-stone relative py-24 bg-background">
+    <section id="staff" className="texture-stone relative py-24 bg-background border-t-2 border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <div className="mb-16 text-center">
           <h2 className="font-serif text-4xl font-bold tracking-[0.2em] text-foreground uppercase">
-            Equipo de <span className="text-primary">Guerra</span>
+            El <span className="text-primary">Staff</span>
           </h2>
           <div className="mt-4 mx-auto h-1 w-24 bg-primary" />
         </div>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {staffMembers.map((member) => (
-            <div 
-              key={member.name}
-              className="texture-iron p-8 flex flex-col items-center text-center group hover:border-primary/50 transition-all"
-            >
+        <div className="mx-auto max-w-4xl space-y-12">
+
+          {/* Director */}
+          <div>
+            <div className="texture-iron mb-4 flex items-center gap-3 p-3 border-l-4 border-l-primary">
+              <Crown className="h-5 w-5 text-primary" />
+              <h3 className="font-serif text-xs font-bold tracking-[0.3em] text-primary uppercase">
+                Director del Proyecto
+              </h3>
+            </div>
+
+            <div className="texture-iron p-8 flex items-center gap-8">
               <div className="rivet top-2 left-2" />
               <div className="rivet top-2 right-2" />
               <div className="rivet bottom-2 left-2" />
               <div className="rivet bottom-2 right-2" />
-              
-              <div className="relative mb-6">
-                <div className="flex h-20 w-20 items-center justify-center bg-black border-2 border-border group-hover:border-primary transition-colors">
-                  <span className="font-serif text-2xl font-bold text-foreground">
-                    {member.name.slice(0, 2).toUpperCase()}
-                  </span>
-                </div>
-                <div className="absolute -bottom-2 -right-2 bg-primary p-1.5 border border-black shadow-[0_0_10px_rgba(255,0,0,0.3)]">
-                  <member.icon className="h-4 w-4 text-white" />
+
+              {/* Avatar */}
+              <div className="flex-shrink-0">
+                <div className="relative flex h-20 w-20 items-center justify-center bg-black border-2 border-primary shadow-[0_0_20px_rgba(255,0,0,0.2)]">
+                  <span className="font-serif text-2xl font-bold text-foreground">BE</span>
+                  <div className="absolute -bottom-2 -right-2 bg-primary p-1.5 border border-black">
+                    <Crown className="h-4 w-4 text-white" />
+                  </div>
                 </div>
               </div>
 
-              <h3 className="font-serif text-xl font-bold tracking-widest text-foreground uppercase">
-                {member.name}
+              {/* Info */}
+              <div>
+                <p className="font-serif text-2xl font-bold tracking-widest text-foreground uppercase">Benedict</p>
+                <p className="mt-1 font-serif text-sm font-bold tracking-widest text-primary/80 uppercase">Tomás</p>
+                <p className="mt-3 text-sm text-muted-foreground italic">Fundador y desarrollador principal de TrhynumAO.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Game Masters */}
+          <div>
+            <div className="texture-iron mb-4 flex items-center gap-3 p-3 border-l-4 border-l-border">
+              <Sword className="h-5 w-5 text-muted-foreground" />
+              <h3 className="font-serif text-xs font-bold tracking-[0.3em] text-muted-foreground uppercase">
+                Game Masters
               </h3>
-              <p className="mt-1 text-xs font-bold tracking-widest text-primary uppercase">
-                {member.role}
-              </p>
-              <p className="mt-4 text-sm text-muted-foreground leading-relaxed italic">
-                "{member.description}"
+            </div>
+
+            <div className="texture-iron p-12 flex flex-col items-center justify-center text-center gap-3 min-h-[120px]">
+              <div className="rivet top-2 left-2" />
+              <div className="rivet top-2 right-2" />
+              <div className="rivet bottom-2 left-2" />
+              <div className="rivet bottom-2 right-2" />
+              <Sword className="h-8 w-8 text-border" />
+              <p className="font-serif text-sm tracking-widest text-muted-foreground/50 uppercase italic">
+                Plazas en formación — próximamente
               </p>
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
     </section>
