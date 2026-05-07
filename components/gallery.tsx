@@ -1,11 +1,11 @@
 import Image from "next/image"
 
 const items = [
-  { id: "16036", name: "Ítem Legendario" },
-  { id: "16038", name: "Reliquia de Trhynum" },
-  { id: "18206", name: "Artefacto Antiguo" },
-  { id: "195", name: "Consumible Raro" },
-  { id: "3", name: "Gema de Poder" },
+  { id: "16036" },
+  { id: "16038" },
+  { id: "18206" },
+  { id: "195" },
+  { id: "3" },
 ]
 
 export function Gallery() {
@@ -21,14 +21,11 @@ export function Gallery() {
               <div className="relative h-16 w-16 bg-black/40 border border-border/50 transition-all group-hover:border-primary/50 group-hover:shadow-[0_0_15px_rgba(255,0,0,0.1)]">
                 <Image
                   src={`/assets/${item.id}.bmp`}
-                  alt={item.name}
+                  alt="Item"
                   fill
                   className="ao-sprite object-contain p-2"
                 />
               </div>
-              <span className="mt-2 font-serif text-[10px] tracking-widest text-muted-foreground uppercase opacity-0 group-hover:opacity-100 transition-opacity">
-                {item.name}
-              </span>
             </div>
           ))}
         </div>

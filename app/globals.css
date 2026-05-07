@@ -85,6 +85,7 @@
   }
   body {
     @apply bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground;
+    cursor: url('/assets/2.ico'), auto;
   }
 }
 

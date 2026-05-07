@@ -18,20 +18,7 @@ export const metadata: Metadata = {
   description: 'El servidor definitivo basado en motor DX8 (Mod Fénix). Diseñado para el agite puro. Entrá, equipate y dominá el continente.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/assets/Icono.ico',
     apple: '/apple-icon.png',
   },
 }

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Swords, Shield, Zap } from "lucide-react"
+import { ApuAnimation } from "./apu-animation"
 
 const features = [
   {
@@ -39,9 +40,12 @@ export function Features() {
                 <feature.icon className="h-6 w-6" />
               </div>
 
-              <h3 className="mb-4 font-serif text-xl font-bold tracking-widest text-foreground uppercase group-hover:text-primary transition-colors">
-                {feature.title}
-              </h3>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-serif text-xl font-bold tracking-widest text-foreground uppercase group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                {feature.isSprite && <ApuAnimation />}
+              </div>
               
               <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
                 {feature.description}
