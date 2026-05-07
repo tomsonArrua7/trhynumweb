@@ -3,10 +3,16 @@ import { Swords, Shield, Zap } from "lucide-react"
 
 const features = [
   {
-    title: "Mundo Persistente",
-    description: "Explorá el continente de Trhynum. Desde Ullathorpe hasta las islas faccionarias.",
-    image: "/assets/foto1.png",
+    title: "Interfaz Clásica",
+    description: "Una experiencia de usuario optimizada que mantiene la esencia del Argentum Online.",
+    image: "/assets/foto3.png",
     icon: Shield,
+  },
+  {
+    title: "Misiones y Desafíos",
+    description: "Sistemas de misiones únicos para obtener recompensas y puntos de canje.",
+    image: "/assets/foto4.png",
+    icon: Zap,
   },
   {
     title: "Agite de Selección",
@@ -14,12 +20,6 @@ const features = [
     image: "/assets/foto2.png",
     icon: Swords,
     isSprite: true,
-  },
-  {
-    title: "Items Legendarios",
-    description: "Conseguí los mejores canjes participando en torneos y dominando el ranking.",
-    image: "/assets/unique_item.png",
-    icon: Zap,
   },
 ]
 
