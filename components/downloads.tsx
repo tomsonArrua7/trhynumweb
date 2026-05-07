@@ -5,9 +5,9 @@ export function Downloads() {
   const downloadLinks = [
     { 
       name: "Descarga Directa", 
-      size: "1.2 GB", 
+      size: "2 MB", 
       description: "Descarga directa desde nuestro servidor.",
-      url: "/downloads/TrhynumAO.zip" 
+      url: "/downloads/TrhynumAO-Instalador.exe" 
     },
     { 
       name: "Mirror Mediafire", 
