@@ -62,14 +62,15 @@ export function Hero() {
         {/* CTA */}
         <div className="mt-12">
           <a href="#descargas">
-          <button
-            className="group relative h-16 w-56 overflow-hidden border-2 border-primary bg-primary/10 font-serif text-base font-bold tracking-[0.3em] text-white uppercase transition-all duration-300 hover:bg-primary hover:shadow-[0_0_40px_rgba(180,0,0,0.5)]"
-          >
-            {/* Shimmer on hover */}
-            <span className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-[100%]" />
-            Jugar Ahora
-          </button>
-        </a>
+            <button
+              className="group relative h-16 w-56 overflow-hidden border-2 border-primary bg-primary/10 font-serif text-base font-bold tracking-[0.3em] text-white uppercase transition-all duration-300 hover:bg-primary hover:shadow-[0_0_40px_rgba(180,0,0,0.5)]"
+            >
+              {/* Shimmer on hover */}
+              <span className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-500 group-hover:translate-x-[100%]" />
+              Jugar Ahora
+            </button>
+          </a>
+        </div>
 
         {/* Scroll hint */}
         <p className="mt-16 font-serif text-[9px] tracking-[0.4em] text-foreground/30 uppercase animate-pulse">
