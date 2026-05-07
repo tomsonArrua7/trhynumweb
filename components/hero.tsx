@@ -19,15 +19,6 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
 
-      {/* Rain / scanline texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.5) 2px, rgba(255,255,255,0.5) 3px)",
-          backgroundSize: "100% 4px",
-        }}
-      />
 
       {/* Center content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center">
