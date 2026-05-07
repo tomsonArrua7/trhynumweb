@@ -21,9 +21,9 @@ export function Footer() {
 
           {/* Description */}
           <p className="max-w-md font-serif text-sm tracking-widest text-muted-foreground uppercase">
-            El servidor definitivo de Argentum Online. 
+            Servidor basado en motor DX8 (Mod Fénix).
             <br />
-            <span className="text-primary/70">Basado en motor DX8 (Mod Fénix).</span>
+            <span className="text-primary/70">Forjado para el agite y la competencia.</span>
           </p>
 
           {/* Links */}

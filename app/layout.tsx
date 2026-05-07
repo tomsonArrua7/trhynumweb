@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'TrhynumAO - El Servidor Definitivo de Argentum Online',
-  description: 'El servidor definitivo basado en motor DX8 (Mod Fénix). Diseñado para el agite puro. Entrá, equipate y dominá el continente.',
+  title: 'Trhynum AO - Argentum Online',
+  description: 'Servidor basado en motor DX8 (Mod Fénix). Diseñado para el agite puro y la competencia. Entrá, equipate y dominá el continente de Trhynum.',
   generator: 'v0.app',
   icons: {
     icon: '/assets/Icono.ico',
