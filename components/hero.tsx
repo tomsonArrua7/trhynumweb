@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Countdown } from "./countdown"
+import { ServerStatus } from "./server-status"
 
 export function Hero() {
   return (
@@ -47,8 +47,8 @@ export function Hero() {
         </p>
 
         {/* Bottom ornamental rule */}
-        {/* Countdown */}
-        <Countdown />
+        {/* Server Status */}
+        <ServerStatus />
 
         {/* CTA */}
         <div className="mt-12">
