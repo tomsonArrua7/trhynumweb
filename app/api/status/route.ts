@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { kv } from '@vercel/kv'
 import net from "net"
 
 export const dynamic = "force-dynamic"
@@ -35,8 +36,13 @@ export async function GET() {
 
   try {
     const isOnline = await checkStatus()
-    return NextResponse.json({ online: isOnline })
+    const onlines = await kv.get<number>('onlines_count') || 0
+    
+    return NextResponse.json({ 
+      online: isOnline,
+      onlines: onlines
+    })
   } catch (error) {
-    return NextResponse.json({ online: false }, { status: 500 })
+    return NextResponse.json({ online: false, onlines: 0 }, { status: 500 })
   }
 }
