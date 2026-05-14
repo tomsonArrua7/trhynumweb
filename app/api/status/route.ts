@@ -35,14 +35,29 @@ export async function GET() {
   }
 
   try {
+    // 1. Chequeo de conexión TCP al VPS
     const isOnline = await checkStatus()
-    const onlines = await kv.get<number>('onlines_count') || 0
+    
+    // 2. Intento de obtener usuarios de KV (con su propio try/catch)
+    let onlines = 0
+    try {
+      const kvValue = await kv.get<number>('onlines_count')
+      onlines = kvValue !== null ? Number(kvValue) : 0
+    } catch (kvError) {
+      console.error("Error al acceder a Vercel KV:", kvError)
+      // No lanzamos el error para que el status principal siga funcionando
+    }
     
     return NextResponse.json({ 
       online: isOnline,
       onlines: onlines
     })
   } catch (error) {
-    return NextResponse.json({ online: false, onlines: 0 }, { status: 500 })
+    console.error("Error crítico en API Status:", error)
+    return NextResponse.json({ 
+      online: false, 
+      onlines: 0,
+      error: "Internal check failed"
+    }, { status: 500 })
   }
 }
