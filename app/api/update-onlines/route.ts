@@ -2,16 +2,18 @@ import { kv } from '@vercel/kv';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
+  let rawBody = "";
   try {
-    const body = await request.json();
+    rawBody = await request.text();
+    const body = JSON.parse(rawBody);
     const { secret, onlines } = body;
 
-    // Log para depuración (ver en Vercel Dashboard)
+    // Log para depuración
     console.log("Recibida petición de actualización:", { hasSecret: !!secret, onlines });
 
     // 1. Validar el secreto de autenticación
     if (!secret || secret !== process.env.AUTH_SECRET) {
-      console.error("Fallo de autenticación: El secreto no coincide o no existe.");
+      console.error("Fallo de autenticación. Secreto recibido:", secret);
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
@@ -28,7 +30,12 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, updated: onlineCount }, { status: 200 });
   } catch (error) {
-    console.error('Error interno al actualizar onlines:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    console.error('Error al procesar la petición POST:', error);
+    console.error('Cuerpo recibido (Raw Body):', rawBody);
+    return NextResponse.json({ 
+      error: 'Invalid JSON format', 
+      details: error instanceof Error ? error.message : "Unknown error",
+      received: rawBody 
+    }, { status: 400 });
   }
 }
