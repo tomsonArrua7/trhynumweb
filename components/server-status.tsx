@@ -45,31 +45,21 @@ export function ServerStatus() {
   return (
     <div className="mt-8 flex flex-col items-center gap-2 animate-in fade-in zoom-in duration-500">
       {isOnline ? (
-        <div className="flex flex-col items-center gap-3">
-          <div className="group relative">
-            <div className="absolute -inset-0.5 rounded-md bg-emerald-500/20 blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-            <div className="relative flex h-14 items-center justify-center gap-4 rounded-md border border-emerald-500/30 bg-black/60 px-8 py-2 shadow-[0_0_20px_rgba(16,185,129,0.1)] backdrop-blur-md">
-              <div className="relative flex items-center justify-center">
-                <Shield className="h-6 w-6 text-emerald-500" />
-                <div className="absolute h-2 w-2 rounded-full bg-emerald-400 animate-ping opacity-75"></div>
-              </div>
-              <div className="flex flex-col items-start leading-tight">
-                <span className="font-serif text-lg tracking-[0.2em] text-emerald-400 uppercase font-bold drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
-                  SERVIDOR ONLINE
-                </span>
-                <span className="text-[9px] tracking-[0.1em] text-emerald-500/70 uppercase font-medium">
-                  Listo para la batalla
-                </span>
-              </div>
+        <div className="group relative">
+          <div className="absolute -inset-0.5 rounded-md bg-emerald-500/20 blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+          <div className="relative flex h-14 items-center justify-center gap-4 rounded-md border border-emerald-500/30 bg-black/60 px-8 py-2 shadow-[0_0_20px_rgba(16,185,129,0.1)] backdrop-blur-md">
+            <div className="relative flex items-center justify-center">
+              <Shield className="h-6 w-6 text-emerald-500" />
+              <div className="absolute h-2 w-2 rounded-full bg-emerald-400 animate-ping opacity-75"></div>
             </div>
-          </div>
-          
-          {/* Contador de Onlines */}
-          <div className="flex items-center gap-2 px-3 py-1 bg-black/40 border border-white/5 rounded-full backdrop-blur-sm shadow-inner">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.8)]" />
-            <span className="text-[11px] font-bold tracking-[0.1em] text-white/80 uppercase">
-              Jugadores Online: <span className="text-green-400">{onlines}</span>
-            </span>
+            <div className="flex flex-col items-start leading-tight">
+              <span className="font-serif text-lg tracking-[0.2em] text-emerald-400 uppercase font-bold drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]">
+                SERVIDOR ONLINE
+              </span>
+              <span className="text-[9px] tracking-[0.1em] text-emerald-500/70 uppercase font-medium">
+                Listo para la batalla
+              </span>
+            </div>
           </div>
         </div>
       ) : (
