@@ -1,5 +1,10 @@
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
 import { NextResponse } from 'next/server';
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL || "",
+  token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
+});
 
 export async function POST(request: Request) {
   let rawBody = "";
@@ -24,8 +29,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid onlines count' }, { status: 400 });
     }
 
-    // 3. Guardar en Vercel KV
-    await kv.set('onlines_count', onlineCount);
+    // 3. Guardar en Upstash Redis
+    await redis.set('onlines_count', onlineCount);
     console.log("Actualización exitosa. Usuarios online:", onlineCount);
 
     return NextResponse.json({ success: true, updated: onlineCount }, { status: 200 });

@@ -25,7 +25,7 @@ export function ServerStatus() {
 
   useEffect(() => {
     checkStatus()
-    const interval = setInterval(checkStatus, 30000) // Re-check every 30 seconds
+    const interval = setInterval(checkStatus, 180000) // Re-check every 3 minutes (180000ms)
     return () => clearInterval(interval)
   }, [])
 

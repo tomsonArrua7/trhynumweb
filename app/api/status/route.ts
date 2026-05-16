@@ -1,8 +1,11 @@
+import { Redis } from '@upstash/redis';
 import { NextResponse } from "next/server"
-import { kv } from '@vercel/kv'
 import net from "net"
 
-export const dynamic = "force-dynamic"
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL || "",
+  token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
+});
 
 export async function GET() {
   const host = "149.104.76.210"
@@ -38,20 +41,24 @@ export async function GET() {
     // 1. Chequeo de conexión TCP al VPS
     const isOnline = await checkStatus()
     
-    // 2. Intento de obtener usuarios de KV (con su propio try/catch)
+    // 2. Intento de obtener usuarios de Upstash Redis
     let onlines = 0
     try {
-      const kvValue = await kv.get<number>('onlines_count')
+      const kvValue = await redis.get<number>('onlines_count')
       onlines = kvValue !== null ? Number(kvValue) : 0
     } catch (kvError) {
-      console.error("Error al acceder a Vercel KV:", kvError)
-      // No lanzamos el error para que el status principal siga funcionando
+      console.error("Error al acceder a Upstash Redis:", kvError)
     }
     
-    return NextResponse.json({ 
-      online: isOnline,
-      onlines: onlines
-    })
+    return NextResponse.json(
+      { online: isOnline, onlines: onlines },
+      { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30'
+        }
+      }
+    );
   } catch (error) {
     console.error("Error crítico en API Status:", error)
     return NextResponse.json({ 
