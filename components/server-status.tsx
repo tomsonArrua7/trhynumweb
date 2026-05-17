@@ -62,13 +62,6 @@ export function ServerStatus() {
             </div>
           </div>
           
-          {/* Contador de Onlines */}
-          <div className="flex items-center gap-2 px-3 py-1 bg-black/40 border border-white/5 rounded-full backdrop-blur-sm shadow-inner animate-in fade-in slide-in-from-bottom-2 duration-700">
-            <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.8)]" />
-            <span className="text-[11px] font-bold tracking-[0.1em] text-white/80 uppercase">
-              Jugadores Online: <span className="text-green-400">{onlines}</span>
-            </span>
-          </div>
         </div>
       ) : (
         <div className="group relative">
