@@ -1,4 +1,9 @@
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL || "",
+  token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
+});
 
 /**
  * Componente de Servidor para mostrar los usuarios online.
@@ -9,7 +14,7 @@ export default async function OnlineCounter() {
   let onlines: number | null = 0;
   
   try {
-    onlines = await kv.get<number>('onlines_count');
+    onlines = await redis.get<number>('onlines_count');
   } catch (error) {
     console.error("Error loading online users:", error);
   }
