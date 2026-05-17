@@ -6,6 +6,8 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
 });
 
+export const runtime = 'edge';
+
 export async function POST(request: Request) {
   let rawBody = "";
   try {
