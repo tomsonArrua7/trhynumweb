@@ -17,14 +17,6 @@
 .PARAMETER Loop
     Si se especifica, el script correrá de forma contínua en un bucle infinito cada X segundos.
     Si no se especifica, se ejecutará una única vez (ideal para Tareas Programadas de Windows).
-
-.EXAMPLE
-    # Ejecución única (ideal para Tareas Programadas de Windows cada 5 minutos):
-    .\vps-ranking-sync.ps1 -ServerPath "C:\Trhynum\Servidor" -RedisUrl "https://xxx.upstash.io" -RedisToken "xxx"
-
-.EXAMPLE
-    # Ejecución contínua en consola:
-    .\vps-ranking-sync.ps1 -ServerPath "C:\Trhynum\Servidor" -RedisUrl "https://xxx.upstash.io" -RedisToken "xxx" -Loop -IntervalSeconds 60
 #>
 
 param(
@@ -34,23 +26,16 @@ param(
     [int]$IntervalSeconds = 7200,
     [switch]$Loop
 )
-# Sobrescribir Write-Host localmente con Write-Output para evitar el error Win32 0x1F de la consola de Windows Server 2012 R2
-function Write-Host {
-    param(
-        [Parameter(ValueFromPipeline = $true, Position = 0)]
-        [object]$Object,
-        [string]$ForegroundColor,
-        [string]$BackgroundColor,
-        [switch]$NoNewline
-    )
-    Write-Output "$Object"
-}
-Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "      SINCRONIZADOR DE RANKINGS - TRHYNUM AO              " -ForegroundColor Cyan
-Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "Ruta del Servidor: $ServerPath" -ForegroundColor White
-Write-Host "Intervalo de loop: $IntervalSeconds segundos" -ForegroundColor White
-Write-Host "==========================================================" -ForegroundColor Cyan
+
+# NOTA: No usamos [Console]::OutputEncoding ni Write-Host para evitar fallos de buffer (0x1F) en Windows Server 2012 R2.
+# Toda la salida de consola se hace mediante Write-Output que es 100% inmune a estos errores.
+
+Write-Output "=========================================================="
+Write-Output "      SINCRONIZADOR DE RANKINGS - TRHYNUM AO              "
+Write-Output "=========================================================="
+Write-Output "Ruta del Servidor: $ServerPath"
+Write-Output "Intervalo de loop: $IntervalSeconds segundos"
+Write-Output "=========================================================="
 
 # Validar parámetros obligatorios si no están en variables de entorno
 if (-not $RedisUrl) {
@@ -61,9 +46,8 @@ if (-not $RedisToken) {
 }
 
 if (-not $RedisUrl -or -not $RedisToken) {
-    Write-Host "[ERROR] Se requiere la URL y el Token de Upstash Redis." -ForegroundColor Red
-    Write-Host "Por favor provéelos como parámetros (-RedisUrl y -RedisToken) o configura las" -ForegroundColor Yellow
-    Write-Host "variables de entorno UPSTASH_REDIS_REST_URL y UPSTASH_REDIS_REST_TOKEN." -ForegroundColor Yellow
+    Write-Output "[ERROR] Se requiere la URL y el Token de Upstash Redis."
+    Write-Output "Por favor provéelos como parámetros o configura las variables de entorno."
     exit 1
 }
 
@@ -77,7 +61,7 @@ function Get-RankingMensual {
         [int]$TakeLines
     )
     if (-not (Test-Path $FilePath)) {
-        Write-Host "  [!] Archivo no encontrado: $FilePath" -ForegroundColor Yellow
+        Write-Output "  [-] Archivo no encontrado: $FilePath"
         return @()
     }
     
@@ -111,7 +95,7 @@ function Get-RankingMensual {
         }
         return $ranking
     } catch {
-        Write-Host "  [ERROR] Fallo al parsear $FilePath : $_" -ForegroundColor Red
+        Write-Output "  [ERROR] Fallo al parsear $FilePath : $_"
         return @()
     }
 }
@@ -122,7 +106,7 @@ function Get-SimpleRanking {
         [string]$FilePath
     )
     if (-not (Test-Path $FilePath)) {
-        Write-Host "  [!] Archivo no encontrado: $FilePath" -ForegroundColor Yellow
+        Write-Output "  [-] Archivo no encontrado: $FilePath"
         return @()
     }
     
@@ -155,7 +139,7 @@ function Get-SimpleRanking {
         }
         return $ranking
     } catch {
-        Write-Host "  [ERROR] Fallo al parsear $FilePath : $_" -ForegroundColor Red
+        Write-Output "  [ERROR] Fallo al parsear $FilePath : $_"
         return @()
     }
 }
@@ -166,7 +150,7 @@ function Get-GuildsInfo {
         [string]$FilePath
     )
     if (-not (Test-Path $FilePath)) {
-        Write-Host "  [!] Archivo no encontrado: $FilePath" -ForegroundColor Yellow
+        Write-Output "  [-] Archivo no encontrado: $FilePath"
         return @()
     }
     
@@ -231,7 +215,7 @@ function Get-GuildsInfo {
         }
         return $ranking
     } catch {
-        Write-Host "  [ERROR] Fallo al parsear $FilePath : $_" -ForegroundColor Red
+        Write-Output "  [ERROR] Fallo al parsear $FilePath : $_"
         return @()
     }
 }
@@ -245,7 +229,7 @@ function Send-To-Redis {
     )
     
     if ($Data.Count -eq 0 -or $null -eq $Data) {
-        Write-Host "  [-] Sin registros para subir a la clave: $Key" -ForegroundColor Gray
+        Write-Output "  [-] Sin registros para subir a la clave: $Key"
         return
     }
     
@@ -266,57 +250,57 @@ function Send-To-Redis {
         $response = Invoke-RestMethod -Uri $endpoint -Method Post -Headers $headers -Body $bodyBytes -ErrorAction Stop
         
         if ($response.result -eq "OK") {
-            Write-Host "  [+] Sincronizado exitosamente '$Key' con $($Data.Count) registros." -ForegroundColor Green
+            Write-Output "  [+] Sincronizado exitosamente '$Key' con $($Data.Count) registros."
         } else {
-            Write-Host "  [!] Upstash devolvió un resultado inesperado para '$Key': $($response | ConvertTo-Json)" -ForegroundColor Yellow
+            Write-Output "  [!] Upstash devolvió un resultado inesperado para '$Key': $($response | ConvertTo-Json)"
         }
     } catch {
-        Write-Host "  [ERROR] Error al enviar a Upstash Redis ('$Key'): $_" -ForegroundColor Red
+        Write-Output "  [ERROR] Error al enviar a Upstash Redis ('$Key'): $_"
     }
 }
 
 # --- PROCESO PRINCIPAL DE EJECUCIÓN ---
 
 function Sync-All-Rankings {
-    Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Iniciando sincronización de rankings..." -ForegroundColor Cyan
+    Write-Output "[$(Get-Date -Format 'HH:mm:ss')] Iniciando sincronización de rankings..."
     
     # 1. Ranking 1v1 (RankingMensual.dat - Saltamos 1 línea, tomamos 10 registros)
     $fileRankMensual = Join-Path $ServerPath "Dat\RankingMensual.dat"
-    Write-Host " Procesando 1v1 Retos..." -ForegroundColor White
+    Write-Output " Procesando 1v1 Retos..."
     $top1v1 = Get-RankingMensual -FilePath $fileRankMensual -SkipLines 1 -TakeLines 10
     Send-To-Redis -Key "rankings_1" -Data $top1v1
     
     # 2. Ranking 2v2 (RankingMensual.dat - Saltamos 11 líneas, tomamos 10 registros)
-    Write-Host " Procesando 2v2 Retos..." -ForegroundColor White
+    Write-Output " Procesando 2v2 Retos..."
     $top2v2 = Get-RankingMensual -FilePath $fileRankMensual -SkipLines 11 -TakeLines 10
     Send-To-Redis -Key "rankings_2" -Data $top2v2
     
     # 3. Castillo de Clanes (GuildsInfo.inf)
     $fileGuilds = Join-Path $ServerPath "Guilds\GuildsInfo.inf"
-    Write-Host " Procesando Castillo de Clanes (Tiempo de Dominación)..." -ForegroundColor White
+    Write-Output " Procesando Castillo de Clanes (Tiempo de Dominación)..."
     $topCastillos = Get-GuildsInfo -FilePath $fileGuilds
     Send-To-Redis -Key "rankings_3" -Data $topCastillos
     
     # 5. CvC de Clanes (CvCTop10.dat)
     $fileCvC = Join-Path $ServerPath "Dat\CvCTop10.dat"
-    Write-Host " Procesando Torneo CvC de Clanes..." -ForegroundColor White
+    Write-Output " Procesando Torneo CvC de Clanes..."
     $topCvC = Get-SimpleRanking -FilePath $fileCvC
     Send-To-Redis -Key "rankings_5" -Data $topCvC
     
     # 6. ELO Clasificatorio (Top10Elo.dat)
     $fileElo = Join-Path $ServerPath "Dat\Top10Elo.dat"
-    Write-Host " Procesando ELO Clasificatorio..." -ForegroundColor White
+    Write-Output " Procesando ELO Clasificatorio..."
     $topElo = Get-SimpleRanking -FilePath $fileElo
     Send-To-Redis -Key "rankings_6" -Data $topElo
     
-    Write-Host "[$(Get-Date -Format 'HH:mm:ss')] Sincronización completada con éxito." -ForegroundColor Cyan
-    Write-Host "----------------------------------------------------------" -ForegroundColor Gray
+    Write-Output "[$(Get-Date -Format 'HH:mm:ss')] Sincronización completada con éxito."
+    Write-Output "----------------------------------------------------------"
 }
 
 # --- BUCLE PRINCIPAL / MODO LOOP ---
 
 if ($Loop) {
-    Write-Host "Corriendo en modo contínuo (Bucle). Presiona Ctrl+C para salir." -ForegroundColor Yellow
+    Write-Output "Corriendo en modo contínuo (Bucle). Presiona Ctrl+C para salir."
     while ($true) {
         Sync-All-Rankings
         Start-Sleep -Seconds $IntervalSeconds
