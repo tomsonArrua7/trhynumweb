@@ -7,46 +7,46 @@ const redis = new Redis({
 });
 
 const mockRankings: Record<string, any[]> = {
-  // Category 1: 1v1
+  // Categoría 1: 1v1 Retos
   "1": [
-    { rank: 1, name: "Goku", class: "Paladín", level: 45, score: 2840 },
-    { rank: 2, name: "NullPointer", class: "Mago", level: 45, score: 2610 },
-    { rank: 3, name: "Zeus", class: "Asesino", level: 45, score: 2550 },
-    { rank: 4, name: "Kratos", class: "Guerrero", level: 44, score: 2390 },
-    { rank: 5, name: "Legolas", class: "Cazador", level: 44, score: 2200 },
-    { rank: 6, name: "Arthas", class: "Caballero", level: 43, score: 2150 },
-    { rank: 7, name: "Sauron", class: "Bardo", level: 43, score: 2010 },
-    { rank: 8, name: "Gandalf", class: "Mago", level: 43, score: 1980 },
-    { rank: 9, name: "Lagertha", class: "Guerrero", level: 42, score: 1850 },
-    { rank: 10, name: "Ragnar", class: "Cazador", level: 42, score: 1790 }
+    { posicion: 1, nombre: "Goku", puntos: 2840 },
+    { posicion: 2, nombre: "NullPointer", puntos: 2610 },
+    { posicion: 3, nombre: "Zeus", puntos: 2550 },
+    { posicion: 4, nombre: "Kratos", puntos: 2390 },
+    { posicion: 5, nombre: "Legolas", puntos: 2200 },
+    { posicion: 6, nombre: "Arthas", puntos: 2150 },
+    { posicion: 7, nombre: "Sauron", puntos: 2010 },
+    { posicion: 8, nombre: "Gandalf", puntos: 1980 },
+    { posicion: 9, nombre: "Lagertha", puntos: 1850 },
+    { posicion: 10, nombre: "Ragnar", puntos: 1790 }
   ],
-  // Category 2: 2v2
+  // Categoría 2: 2v2 Retos
   "2": [
-    { rank: 1, name: "Goku & Vegeta", class: "Puro Agite", score: 1450 },
-    { rank: 2, name: "Legolas & Gimli", class: "Alianza", score: 1320 },
-    { rank: 3, name: "Arthas & Jaina", class: "Lordaeron", score: 1290 },
-    { rank: 4, name: "Ragnar & Floki", class: "Kattegat", score: 1100 },
-    { rank: 5, name: "Neo & Trinity", class: "Matrix", score: 1020 }
+    { posicion: 1, nombre: "Goku & Vegeta", puntos: 1450 },
+    { posicion: 2, nombre: "Legolas & Gimli", puntos: 1320 },
+    { posicion: 3, nombre: "Arthas & Jaina", puntos: 1290 },
+    { posicion: 4, nombre: "Ragnar & Floki", puntos: 1100 },
+    { posicion: 5, nombre: "Neo & Trinity", puntos: 1020 }
   ],
-  // Category 3: Castillos
+  // Categoría 3: Castillos (El puntaje es tiempo en segundos)
   "3": [
-    { rank: 1, name: "Imperio del Mal", leader: "Sauron", status: "Dueño de Ullathorpe" },
-    { rank: 2, name: "Orden Sagrada", leader: "Arthas", status: "Dueño de Banderbill" },
-    { rank: 3, name: "Mercenarios", leader: "Kratos", status: "Retador Activo" }
+    { posicion: 1, nombre: "Imperio del Mal (Dueño de Ullathorpe)", puntos: 18000 },
+    { posicion: 2, nombre: "Orden Sagrada (Dueño de Banderbill)", puntos: 10800 },
+    { posicion: 3, nombre: "Mercenarios (Retador Activo)", puntos: 3600 }
   ],
-  // Category 4: Torneos
+  // Categoría 4: Torneos
   "4": [
-    { rank: 1, name: "Zeus", class: "Asesino", level: 45, tournaments: 14 },
-    { rank: 2, name: "Goku", class: "Paladín", level: 45, tournaments: 12 },
-    { rank: 3, name: "Kratos", class: "Guerrero", level: 44, tournaments: 9 }
+    { posicion: 1, nombre: "Zeus", puntos: 14 },
+    { posicion: 2, nombre: "Goku", puntos: 12 },
+    { posicion: 3, nombre: "Kratos", puntos: 9 }
   ],
-  // Category 5: CvC Clanes
+  // Categoría 5: CvC Clanes
   "5": [
-    { rank: 1, name: "VALHALLA", members: 28, level: 5, score: 48500 },
-    { rank: 2, name: "SYNDICATE", members: 22, level: 4, score: 39100 },
-    { rank: 3, name: "ODIN", members: 19, level: 4, score: 35000 },
-    { rank: 4, name: "NIGHTFALL", members: 15, level: 3, score: 28900 },
-    { rank: 5, name: "LEGION", members: 12, level: 3, score: 24200 }
+    { posicion: 1, nombre: "VALHALLA", puntos: 48500 },
+    { posicion: 2, nombre: "SYNDICATE", puntos: 39100 },
+    { posicion: 3, nombre: "ODIN", puntos: 35000 },
+    { posicion: 4, nombre: "NIGHTFALL", puntos: 28900 },
+    { posicion: 5, nombre: "LEGION", puntos: 24200 }
   ]
 };
 
@@ -61,12 +61,12 @@ export async function GET(req: Request) {
       return NextResponse.json({ success: true, data: cachedRankings });
     }
 
-    // Retornar datos mock de excelente calidad para que la UI nunca se vea vacía ni de error
+    // Retornar datos mock adaptados en español para que la UI se dibuje sin errores
     const data = mockRankings[category] || mockRankings["1"];
     return NextResponse.json({ success: true, data });
   } catch (error) {
     console.error("Error in rankings API:", error);
-    // Retornar datos mock de salvaguarda en lugar de fallar
+    // Retornar datos mock de salvaguarda en español
     const category = new URL(req.url).searchParams.get("category") || "1";
     const data = mockRankings[category] || mockRankings["1"];
     return NextResponse.json({ success: true, data });
