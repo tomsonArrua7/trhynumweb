@@ -20,7 +20,7 @@
 #>
 
 param(
-    [string]$ServerPath = "C:\Servidor",
+    [string]$ServerPath = "C:\Users\Administrador\Desktop\Servidor",
     [string]$RedisUrl = "https://primary-martin-137072.upstash.io",
     [string]$RedisToken = "gQAAAAAAAhdwAAIgcDFlNGU3MzMxNDE2M2E0MDI4OWJkYzFmMTQ2M2Q3YmZjMA",
     [int]$IntervalSeconds = 7200,
