@@ -1,5 +1,11 @@
 import { NextResponse } from "next/server"
 import net from "net"
+import { Redis } from '@upstash/redis'
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL || "",
+  token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
+})
 
 export async function GET() {
   const host = "149.104.76.210"
@@ -33,9 +39,19 @@ export async function GET() {
 
   try {
     const isOnline = await checkStatus()
+    let onlinesCount = 0
+    
+    if (isOnline) {
+      try {
+        const count = await redis.get<number>('onlines_count')
+        onlinesCount = count ?? 0
+      } catch (redisErr) {
+        console.error("Error loading onlines_count from Redis:", redisErr)
+      }
+    }
     
     return NextResponse.json(
-      { online: isOnline },
+      { online: isOnline, onlines: onlinesCount },
       { 
         status: 200,
         headers: {

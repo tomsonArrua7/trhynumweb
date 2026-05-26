@@ -3,5 +3,12 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "rewrites": [
+    { "source": "/donacion_checkout.php", "destination": "/api/donacion-checkout" },
+    { "source": "/donacion_webhook.php", "destination": "/api/donacion-webhook" },
+    { "source": "/api/status/index.php", "destination": "/api/status" },
+    { "source": "/api/rankings/index.php", "destination": "/api/rankings" },
+    { "source": "/api/get-onlines/index.php", "destination": "/api/get-onlines" }
+  ]
 }
