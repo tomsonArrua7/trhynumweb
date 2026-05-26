@@ -1,18 +1,26 @@
 import { Redis } from '@upstash/redis';
 import { NextResponse } from 'next/server';
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL || "",
-  token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
-});
-
 export const dynamic = 'force-dynamic';
 export const runtime = 'edge';
 
 export async function GET() {
   try {
-    const onlines = await redis.get<number>('onlines_count');
-    return NextResponse.json({ onlines: onlines ?? 0 });
+    const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    let onlines = 0;
+
+    if (redisUrl && redisToken && redisUrl.startsWith("https")) {
+      try {
+        const redis = new Redis({ url: redisUrl, token: redisToken });
+        const count = await redis.get<number>('onlines_count');
+        onlines = count ?? 0;
+      } catch (redisErr) {
+        console.error('Error fetching online count from Redis:', redisErr);
+      }
+    }
+
+    return NextResponse.json({ onlines });
   } catch (error) {
     console.error('Error fetching online count:', error);
     return NextResponse.json({ onlines: 0, error: 'Failed to fetch' }, { status: 500 });

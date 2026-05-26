@@ -2,12 +2,6 @@ import { NextResponse } from "next/server";
 import net from "net";
 import { Redis } from "@upstash/redis";
 
-// Configurar conexión a Redis para logs de contingencia
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL || "",
-  token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
-});
-
 function calcularPuntos(monto: number): number {
   const montoInt = Math.round(monto);
   switch (montoInt) {
@@ -126,10 +120,16 @@ export async function POST(req: Request) {
       .replace(/[|\r\n\t]/g, "")
       .trim();
 
+    // Inicialización dinámica y perezosa de Redis
+    const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    const redis = (redisUrl && redisToken && redisUrl.startsWith("https"))
+      ? new Redis({ url: redisUrl, token: redisToken })
+      : null;
+
     if (!nickname) {
       console.error(`[Webhook] Pago aprobado sin external_reference (nickname) válido.`);
       
-      // Guardar en Redis en contingencias
       const contingencia = {
         payment_id: paymentId,
         timestamp: new Date().toISOString(),
@@ -138,7 +138,12 @@ export async function POST(req: Request) {
         puntos: calcularPuntos(transactionAmount),
         motivo: "Falta external_reference en preferencia"
       };
-      await redis.lpush("contingencias_donaciones", JSON.stringify(contingencia));
+
+      if (redis) {
+        await redis.lpush("contingencias_donaciones", JSON.stringify(contingencia));
+      } else {
+        console.warn("[Webhook] Redis no configurado. No se pudo guardar contingencia (Falta Nickname).");
+      }
       
       return NextResponse.json({ message: "Approved but nickname was missing, saved in Redis pending." }, { status: 200 });
     }
@@ -161,7 +166,12 @@ export async function POST(req: Request) {
         puntos: puntos,
         motivo: "TCP Server Offline/Unreachable"
       };
-      await redis.lpush("contingencias_donaciones", JSON.stringify(contingencia));
+
+      if (redis) {
+        await redis.lpush("contingencias_donaciones", JSON.stringify(contingencia));
+      } else {
+        console.warn("[Webhook] Redis no configurado. No se pudo guardar contingencia (TCP Offline).");
+      }
     }
 
     return NextResponse.json({

@@ -1,11 +1,6 @@
 import { NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL || "",
-  token: process.env.UPSTASH_REDIS_REST_TOKEN || "",
-});
-
 const mockRankings: Record<string, any[]> = {
   // Categoría 1: 1v1 Retos
   "1": [
@@ -55,10 +50,20 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const category = searchParams.get("category") || "1";
 
-    // Intentar buscar de Redis (para datos en tiempo real subidos por el servidor)
-    const cachedRankings = await redis.get(`rankings_${category}`);
-    if (cachedRankings) {
-      return NextResponse.json({ success: true, data: cachedRankings });
+    const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
+    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+    // Inicialización perezosa (lazy load) para evitar crasheos en build-time
+    if (redisUrl && redisToken && redisUrl.startsWith("https")) {
+      try {
+        const redis = new Redis({ url: redisUrl, token: redisToken });
+        const cachedRankings = await redis.get(`rankings_${category}`);
+        if (cachedRankings) {
+          return NextResponse.json({ success: true, data: cachedRankings });
+        }
+      } catch (redisErr) {
+        console.error("Error al consultar Upstash Redis (Rankings):", redisErr);
+      }
     }
 
     // Retornar datos mock adaptados en español para que la UI se dibuje sin errores
