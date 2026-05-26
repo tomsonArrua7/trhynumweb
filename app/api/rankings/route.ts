@@ -42,6 +42,19 @@ const mockRankings: Record<string, any[]> = {
     { posicion: 3, nombre: "ODIN", puntos: 35000 },
     { posicion: 4, nombre: "NIGHTFALL", puntos: 28900 },
     { posicion: 5, nombre: "LEGION", puntos: 24200 }
+  ],
+  // Categoría 6: Top 10 ELO Clasificatorio (Muestra ELO numérico y activa badges de ligas)
+  "6": [
+    { posicion: 1, nombre: "JEJO", puntos: 2450 },       // Maestro (>= 2000)
+    { posicion: 2, nombre: "seLfish", puntos: 2120 },    // Maestro (>= 2000)
+    { posicion: 3, nombre: "PRUEBA", puntos: 1950 },     // Platino (1800-1999)
+    { posicion: 4, nombre: "Chesterfield", puntos: 1840 },// Platino (1800-1999)
+    { posicion: 5, nombre: "Trolitax", puntos: 1650 },    // Oro (1500-1799)
+    { posicion: 6, nombre: "Setsuna", puntos: 1540 },     // Oro (1500-1799)
+    { posicion: 7, nombre: "Makelele", puntos: 1420 },    // Plata (1200-1499)
+    { posicion: 8, nombre: "Sunra", puntos: 1350 },       // Plata (1200-1499)
+    { posicion: 9, nombre: "Zunny", puntos: 1180 },       // Bronce (< 1200)
+    { posicion: 10, nombre: "Miquela", puntos: 1100 }     // Bronce (< 1200)
   ]
 };
 

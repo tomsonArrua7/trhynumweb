@@ -946,7 +946,7 @@
       <div class="max-w-4xl mx-auto space-y-6">
         
         <!-- Category Selector Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 pb-2">
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-2 pb-2">
           <button onclick="changeRankingCategory(1)" id="ranking-cat-1" class="py-3 px-3 border font-serif text-[11px] font-bold tracking-wider uppercase transition-all duration-300 rounded-sm flex flex-col sm:flex-row items-center justify-center gap-2 text-center bg-red-950/20 border-red-950 text-red-500 shadow-inner">
             <i class="fa-solid fa-swords text-xs"></i>
             <span>1vs1 Retos</span>
@@ -966,6 +966,10 @@
           <button onclick="changeRankingCategory(5)" id="ranking-cat-5" class="py-3 px-3 border font-serif text-[11px] font-bold tracking-wider uppercase transition-all duration-300 rounded-sm flex flex-col sm:flex-row items-center justify-center gap-2 text-center border-slate-800 bg-slate-900/10 text-slate-400 hover:text-white hover:bg-slate-900/30">
             <i class="fa-solid fa-shield-halved text-xs"></i>
             <span>CvC Clanes</span>
+          </button>
+          <button onclick="changeRankingCategory(6)" id="ranking-cat-6" class="py-3 px-3 border font-serif text-[11px] font-bold tracking-wider uppercase transition-all duration-300 rounded-sm flex flex-col sm:flex-row items-center justify-center gap-2 text-center border-slate-800 bg-slate-900/10 text-slate-400 hover:text-white hover:bg-slate-900/30">
+            <i class="fa-solid fa-trophy text-xs"></i>
+            <span>Top ELO</span>
           </button>
         </div>
 
@@ -1574,6 +1578,11 @@
         desc: "Clasificación de Clan vs Clan (CvC) competitivo", 
         reward: "Premio: Honor & Gloria",
         scoreLabel: "Puntos"
+      },
+      6: { 
+        desc: "Top 10 duelistas de ELO clasificatorio competitivo", 
+        reward: "Premio: Rango Exclusivo",
+        scoreLabel: "ELO"
       }
     };
 
@@ -1670,10 +1679,26 @@
                 }
               }
 
+              let eloBadge = "";
+              if (category === 6) {
+                const elo = row.puntos;
+                if (elo >= 2000) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-amber-400 border border-amber-500/40 bg-purple-950/40 px-2 py-0.5 rounded shadow-[0_0_8px_rgba(245,158,11,0.2)] font-serif uppercase tracking-widest">Maestro 👑</span>`;
+                } else if (elo >= 1800) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-sky-400 border border-sky-500/30 bg-sky-950/20 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Platino 💎</span>`;
+                } else if (elo >= 1500) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-yellow-500 border border-yellow-500/30 bg-yellow-950/20 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Oro 🌟</span>`;
+                } else if (elo >= 1200) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-slate-300 border border-slate-700 bg-slate-800/20 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Plata 🛡️</span>`;
+                } else {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-amber-700 border border-amber-900 bg-amber-950/10 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Bronce 🪵</span>`;
+                }
+              }
+
               tr.className = rowClass;
               tr.innerHTML = `
                 <td class="px-5 py-3.5 font-serif font-bold">${posBadge}</td>
-                <td class="px-5 py-3.5 ${nameGlow} tracking-wider font-semibold">${row.nombre}</td>
+                <td class="px-5 py-3.5 ${nameGlow} tracking-wider font-semibold">${row.nombre}${eloBadge}</td>
                 <td class="px-5 py-3.5 text-right ${pointsGlow}">${formattedScore}</td>
               `;
               tableBodyEl.appendChild(tr);
@@ -1712,7 +1737,7 @@
       if (category === currentRankingCategory) return;
       
       // Update button highlights
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 6; i++) {
         const btn = document.getElementById(`ranking-cat-${i}`);
         if (!btn) continue;
         
