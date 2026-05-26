@@ -1032,6 +1032,58 @@
             </table>
           </div>
 
+          <!-- ELO Scale & Auras Guide (Visible only for Category 6 ELO Rankings) -->
+          <div id="ranking-elo-guide" class="mt-4 p-4 rounded bg-slate-950/40 border border-slate-900 flex flex-col gap-3 hidden">
+            <h5 class="font-serif text-[10px] font-bold tracking-[0.2em] text-red-500 uppercase flex items-center gap-1.5 border-b border-slate-800/40 pb-2">
+              <i class="fa-solid fa-trophy"></i>
+              🏆 LIGAS Y ESCALAS DE ELO
+            </h5>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-[11px]">
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/10 border border-amber-950/20">
+                <span class="text-xs">🟫</span>
+                <div>
+                  <span class="font-bold text-amber-700">Bronce (IV - I)</span>
+                  <p class="text-[10px] text-slate-500">0 a 450 ELO ➔ Sin aura (¡A entrenar!)</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/10 border border-slate-800/20">
+                <span class="text-xs">⬜</span>
+                <div>
+                  <span class="font-bold text-slate-300">Plata (IV - I)</span>
+                  <p class="text-[10px] text-slate-500">451 a 850 ELO ➔ 💫 Aura Plateada sutil</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/10 border border-yellow-950/20">
+                <span class="text-xs">🟨</span>
+                <div>
+                  <span class="font-bold text-yellow-500">Oro (IV - I)</span>
+                  <p class="text-[10px] text-slate-500">851 a 1250 ELO ➔ 💫 Aura Dorada radiante</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/10 border border-cyan-950/20">
+                <span class="text-xs">🟦</span>
+                <div>
+                  <span class="font-bold text-cyan-400">Platino (IV - I)</span>
+                  <p class="text-[10px] text-slate-500">1251 a 1650 ELO ➔ 💫 Aura Cyan eléctrica exclusiva</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded bg-slate-900/10 border border-red-950/20">
+                <span class="text-xs">🟥</span>
+                <div>
+                  <span class="font-bold text-red-500">Maestro (IV - I)</span>
+                  <p class="text-[10px] text-slate-500">1651 a 1950 ELO ➔ 💫 Aura Violeta mágica</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 p-2 rounded bg-purple-950/10 border border-purple-800/20 shadow-[0_0_8px_rgba(192,132,252,0.2)] animate-pulse">
+                <span class="text-xs">👑</span>
+                <div>
+                  <span class="font-bold text-purple-400">Top 10</span>
+                  <p class="text-[10px] text-slate-500">1951+ ELO ➔ 👑 Aura Violeta máxima</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Info Cache Footer -->
           <div class="mt-4 pt-3 border-t border-slate-800/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[10px] text-slate-500">
             <div class="flex items-center gap-1.5">
@@ -1605,6 +1657,14 @@
       if (descEl) descEl.textContent = details.desc;
       if (rewardEl) rewardEl.textContent = details.reward;
       if (scoreHeaderEl) scoreHeaderEl.textContent = details.scoreLabel;
+      const eloGuideEl = document.getElementById("ranking-elo-guide");
+      if (eloGuideEl) {
+        if (Number(category) === 6) {
+          eloGuideEl.classList.remove("hidden");
+        } else {
+          eloGuideEl.classList.add("hidden");
+        }
+      }
 
       // Show loading state
       if (loadingEl) loadingEl.classList.remove("hidden");
@@ -1682,16 +1742,18 @@
               let eloBadge = "";
               if (category === 6) {
                 const elo = row.puntos;
-                if (elo >= 2000) {
-                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-amber-400 border border-amber-500/40 bg-purple-950/40 px-2 py-0.5 rounded shadow-[0_0_8px_rgba(245,158,11,0.2)] font-serif uppercase tracking-widest">Maestro 👑</span>`;
-                } else if (elo >= 1800) {
-                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-sky-400 border border-sky-500/30 bg-sky-950/20 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Platino 💎</span>`;
-                } else if (elo >= 1500) {
-                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-yellow-500 border border-yellow-500/30 bg-yellow-950/20 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Oro 🌟</span>`;
-                } else if (elo >= 1200) {
-                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-slate-300 border border-slate-700 bg-slate-800/20 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Plata 🛡️</span>`;
+                if (elo >= 1951) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-purple-400 border border-purple-500/50 bg-purple-950/40 px-2 py-0.5 rounded shadow-[0_0_12px_rgba(192,132,252,0.6)] font-serif uppercase tracking-widest animate-pulse">👑 Top 10</span>`;
+                } else if (elo >= 1651) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-violet-400 border border-violet-500/30 bg-violet-950/20 px-2 py-0.5 rounded shadow-[0_0_8px_rgba(167,139,250,0.4)] font-serif uppercase tracking-widest">🟥 Maestro</span>`;
+                } else if (elo >= 1251) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-cyan-400 border border-cyan-500/30 bg-cyan-950/20 px-2 py-0.5 rounded shadow-[0_0_8px_rgba(34,211,238,0.4)] font-serif uppercase tracking-widest">🟦 Platino</span>`;
+                } else if (elo >= 851) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-yellow-500 border border-yellow-500/20 bg-yellow-950/10 px-2 py-0.5 rounded shadow-[0_0_8px_rgba(234,179,8,0.3)] font-serif uppercase tracking-widest">🟨 Oro</span>`;
+                } else if (elo >= 451) {
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-slate-300 border border-slate-700 bg-slate-800/10 px-2 py-0.5 rounded shadow-[0_0_4px_rgba(148,163,184,0.15)] font-serif uppercase tracking-widest">⬜ Plata</span>`;
                 } else {
-                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-amber-700 border border-amber-900 bg-amber-950/10 px-2 py-0.5 rounded font-serif uppercase tracking-widest">Bronce 🪵</span>`;
+                  eloBadge = `<span class="ml-2 text-[9px] font-bold text-amber-700 border border-amber-950 bg-amber-950/5 px-2 py-0.5 rounded font-serif uppercase tracking-widest">🟫 Bronce</span>`;
                 }
               }
 

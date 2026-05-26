@@ -34,9 +34,17 @@ param(
     [int]$IntervalSeconds = 7200,
     [switch]$Loop
 )
-
-
-
+# Sobrescribir Write-Host localmente con Write-Output para evitar el error Win32 0x1F de la consola de Windows Server 2012 R2
+function Write-Host {
+    param(
+        [Parameter(ValueFromPipeline = $true, Position = 0)]
+        [object]$Object,
+        [string]$ForegroundColor,
+        [string]$BackgroundColor,
+        [switch]$NoNewline
+    )
+    Write-Output "$Object"
+}
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "      SINCRONIZADOR DE RANKINGS - TRHYNUM AO              " -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
