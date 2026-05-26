@@ -4,3 +4,28 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/donacion_checkout.php"
+  to = "/api/donacion-checkout"
+  status = 200
+
+[[redirects]]
+  from = "/donacion_webhook.php"
+  to = "/api/donacion-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/status/index.php"
+  to = "/api/status"
+  status = 200
+
+[[redirects]]
+  from = "/api/rankings/index.php"
+  to = "/api/rankings"
+  status = 200
+
+[[redirects]]
+  from = "/api/get-onlines/index.php"
+  to = "/api/get-onlines"
+  status = 200
