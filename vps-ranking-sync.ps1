@@ -19,7 +19,7 @@
 #>
 
 param(
-    [string]$ServerPath = "C:\Users\usuario\Desktop\ARGENTUM\TrhynumAO Servidor y Cliente\Servidor",
+    [string]$ServerPath = "C:\Users\Administrador\Desktop\Servidor",
     [string]$RedisUrl = "https://primary-martin-137072.upstash.io",
     [string]$RedisToken = "gQAAAAAAAhdwAAIgcDFlNGU3MzMxNDE2M2E0MDI4OWJkYzFmMTQ2M2Q3YmZjMA",
     [int]$IntervalSeconds = 300, # Sincronización cada 5 minutos
