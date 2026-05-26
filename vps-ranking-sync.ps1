@@ -13,7 +13,7 @@
 .PARAMETER RedisToken
     Token de autenticación de Upstash Redis.
 .PARAMETER IntervalSeconds
-    Frecuencia de actualización en segundos si se corre en modo bucle. Por defecto es 300 (5 minutos).
+    Frecuencia de actualización en segundos si se corre en modo bucle. Por defecto es 7200 (2 horas).
 .PARAMETER Loop
     Si se especifica, el script correrá de forma contínua en un bucle infinito cada X segundos.
     Si no se especifica, se ejecutará una única vez (ideal para Tareas Programadas de Windows).
@@ -31,7 +31,7 @@ param(
     [string]$ServerPath = "C:\Servidor",
     [string]$RedisUrl = "https://primary-martin-137072.upstash.io",
     [string]$RedisToken = "gQAAAAAAAhdwAAIgcDFlNGU3MzMxNDE2M2E0MDI4OWJkYzFmMTQ2M2Q3YmZjMA",
-    [int]$IntervalSeconds = 300,
+    [int]$IntervalSeconds = 7200,
     [switch]$Loop
 )
 
