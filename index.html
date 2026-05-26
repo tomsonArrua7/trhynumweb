@@ -1462,8 +1462,8 @@
       const onlineCountVal = document.getElementById("online-count-val");
 
       try {
-        // Unified request: PHP connects directly to game server via TCP and returns {online, onlines}
-        const statusRes = await fetch("api/status/index.php?_=" + Date.now());
+        // Unified request: Connects to Next.js API via TCP and returns {online, onlines}
+        const statusRes = await fetch("/api/status?_=" + Date.now());
         const statusData = await statusRes.json();
 
         if (statusData.online) {
@@ -1603,8 +1603,8 @@
       if (tableContainerEl) tableContainerEl.classList.add("hidden");
 
       try {
-        // Query our PHP endpoint
-        const response = await fetch(`api/rankings/index.php?category=${category}${force ? '&nocache=1' : ''}`);
+        // Query our Serverless API endpoint
+        const response = await fetch(`/api/rankings?category=${category}${force ? '&nocache=1' : ''}`);
         if (!response.ok) throw new Error("API response error");
 
         const result = await response.json();
@@ -1816,8 +1816,8 @@
         return;
       }
 
-      // Generar URL hacia el puente en cPanel
-      const checkoutUrl = `donacion_checkout.php?nickname=${encodeURIComponent(nickname)}&pack=${encodeURIComponent(packId)}`;
+      // Generar URL hacia el puente seguro del API en Netlify
+      const checkoutUrl = `/api/donacion-checkout?nickname=${encodeURIComponent(nickname)}&pack=${encodeURIComponent(packId)}`;
       
       // Abrir en pestaña nueva para la pasarela de Mercado Pago
       window.open(checkoutUrl, "_blank");
