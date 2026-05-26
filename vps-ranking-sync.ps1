@@ -35,8 +35,7 @@ param(
     [switch]$Loop
 )
 
-# Configurar consola para soportar caracteres UTF-8
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "      SINCRONIZADOR DE RANKINGS - TRHYNUM AO              " -ForegroundColor Cyan
