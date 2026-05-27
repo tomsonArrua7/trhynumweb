@@ -418,17 +418,24 @@
   <!-- CENTRO DE DESCARGAS -->
   <section id="descargas" class="texture-stone relative py-20 bg-[#050508] border-t border-obsidian-border">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-16 text-center">
+      <div class="mb-16 text-center flex flex-col items-center">
         <h2 class="font-serif text-3xl sm:text-4xl font-bold tracking-[0.2em] text-white uppercase">
           CENTRO DE <span class="text-red-600 drop-shadow-[0_0_8px_rgba(255,0,0,0.2)]">DESCARGAS</span>
         </h2>
         <p class="mt-4 text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
           Descargá el cliente completo con instalador y comenzá tu aventura en el continente de Trhynum.
         </p>
+        
+        <!-- Live Download Counter Badge -->
+        <div id="download-counter" class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-red-950/45 bg-red-950/20 text-red-500 font-serif text-xs font-bold tracking-wider uppercase shadow-[inset_0_0_10px_rgba(239,68,68,0.05)] animate-pulse hidden">
+          <i class="fas fa-users text-red-600"></i>
+          <span id="download-counter-val">0</span> personas descargaron TrhynumAO
+        </div>
+
         <div class="mt-4 mx-auto h-1 w-24 bg-red-700"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <!-- Card 1: Direct -->
         <div class="texture-iron relative p-8 rounded-md flex flex-col items-center justify-between text-center border border-white/5 bg-black/40 backdrop-blur-md shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:border-red-600/30 group min-h-[350px]">
           <div class="rivet top-2 left-2"></div>
@@ -447,7 +454,7 @@
           
           <div class="w-full mt-auto flex flex-col items-center">
             <span class="inline-block text-[9px] font-bold text-red-500 uppercase tracking-widest bg-red-950/30 border border-red-500/10 px-2 py-0.5 rounded-full mb-4">47 MB</span>
-            <a href="downloads/Instalador_TrhynumAO.exe" download target="_blank" class="w-full">
+            <a href="downloads/Instalador_TrhynumAO.exe" download onclick="registrarDescarga()" target="_blank" class="w-full">
               <button class="texture-stone w-full py-3 border border-red-600/40 bg-gradient-to-r from-red-950/80 to-red-900/60 hover:from-red-800 hover:to-red-600 hover:border-red-500 text-white font-serif text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_15px_rgba(180,0,0,0.15)] hover:shadow-[0_0_25px_rgba(180,0,0,0.4)] flex items-center justify-center gap-2">
                 <i class="fas fa-download"></i> BAJAR DIRECTO
               </button>
@@ -455,33 +462,7 @@
           </div>
         </div>
 
-        <!-- Card 2: Google Drive -->
-        <div class="texture-iron relative p-8 rounded-md flex flex-col items-center justify-between text-center border border-white/5 bg-black/40 backdrop-blur-md shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:border-blue-600/30 group min-h-[350px]">
-          <div class="rivet top-2 left-2"></div>
-          <div class="rivet top-2 right-2"></div>
-          <div class="rivet bottom-2 left-2"></div>
-          <div class="rivet bottom-2 right-2"></div>
-          
-          <div class="h-16 w-16 flex items-center justify-center rounded-full bg-blue-950/30 border border-blue-500/20 text-blue-400 text-3xl mb-6 shadow-[0_0_20px_rgba(59,130,246,0.15)] group-hover:scale-110 transition duration-300">
-            <i class="fas fa-cloud-download-alt"></i>
-          </div>
-          
-          <div class="flex-1 flex flex-col justify-start">
-            <h3 class="font-serif text-lg font-bold tracking-widest text-white uppercase mb-2">GOOGLE DRIVE</h3>
-            <p class="text-xs text-slate-400 mb-6 leading-relaxed">Mirror alternativo de alta velocidad en la nube de Google.</p>
-          </div>
-          
-          <div class="w-full mt-auto flex flex-col items-center">
-            <span class="inline-block text-[9px] font-bold text-blue-400 uppercase tracking-widest bg-blue-950/30 border border-blue-500/10 px-2 py-0.5 rounded-full mb-4">47 MB</span>
-            <a href="https://drive.google.com/uc?export=download&id=1t3l_pC01U1905V1_1952" target="_blank" rel="noopener noreferrer" class="w-full">
-              <button class="texture-stone w-full py-3 border border-blue-600/40 bg-gradient-to-r from-blue-950/80 to-blue-900/60 hover:from-blue-800 hover:to-blue-600 hover:border-blue-500 text-white font-serif text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_15px_rgba(37,99,235,0.15)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] flex items-center justify-center gap-2">
-                <i class="fas fa-external-link-alt"></i> GOOGLE DRIVE
-              </button>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 3: Mediafire -->
+        <!-- Card 2: Mediafire -->
         <div class="texture-iron relative p-8 rounded-md flex flex-col items-center justify-between text-center border border-white/5 bg-black/40 backdrop-blur-md shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:border-rose-600/30 group min-h-[350px]">
           <div class="rivet top-2 left-2"></div>
           <div class="rivet top-2 right-2"></div>
@@ -494,12 +475,12 @@
           
           <div class="flex-1 flex flex-col justify-start">
             <h3 class="font-serif text-lg font-bold tracking-widest text-white uppercase mb-2">MEDIAFIRE</h3>
-            <p class="text-xs text-slate-400 mb-6 leading-relaxed">Mirror alternativo en Mediafire, estable y veloz.</p>
+            <p class="text-xs text-slate-400 mb-6 leading-relaxed">Mirror alternativo en Mediafire, stable y veloz.</p>
           </div>
           
           <div class="w-full mt-auto flex flex-col items-center">
             <span class="inline-block text-[9px] font-bold text-rose-500 uppercase tracking-widest bg-rose-950/30 border border-rose-500/10 px-2 py-0.5 rounded-full mb-4">47 MB</span>
-            <a href="https://www.mediafire.com/file/uzt5yvf7hgblrwl/Instalador_TrhynumAO.exe/file" target="_blank" rel="noopener noreferrer" class="w-full">
+            <a href="https://www.mediafire.com/file/uzt5yvf7hgblrwl/Instalador_TrhynumAO.exe/file" onclick="registrarDescarga()" target="_blank" rel="noopener noreferrer" class="w-full">
               <button class="texture-stone w-full py-3 border border-rose-600/40 bg-gradient-to-r from-rose-950/80 to-rose-900/60 hover:from-rose-800 hover:to-rose-600 hover:border-rose-500 text-white font-serif text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_15px_rgba(244,63,94,0.15)] hover:shadow-[0_0_25px_rgba(244,63,94,0.4)] flex items-center justify-center gap-2">
                 <i class="fas fa-external-link-alt"></i> MEDIAFIRE
               </button>
@@ -1906,6 +1887,48 @@
       // Abrir en pestaña nueva para la pasarela de Mercado Pago
       window.open(checkoutUrl, "_blank");
     }
+
+    // -------------------------------------------------------------
+    // Centro de Descargas - Dynamic Counter Logic
+    // -------------------------------------------------------------
+    async function actualizarContadorDescargas() {
+      try {
+        const response = await fetch("/api/downloads");
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success && result.count !== undefined) {
+            const counterEl = document.getElementById("download-counter");
+            const counterValEl = document.getElementById("download-counter-val");
+            if (counterEl && counterValEl) {
+              counterValEl.textContent = result.count.toLocaleString();
+              counterEl.classList.remove("hidden");
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Error al obtener contador de descargas:", err);
+      }
+    }
+
+    async function registrarDescarga() {
+      try {
+        const response = await fetch("/api/downloads", { method: "POST" });
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success && result.count !== undefined) {
+            const counterValEl = document.getElementById("download-counter-val");
+            if (counterValEl) {
+              counterValEl.textContent = result.count.toLocaleString();
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Error al registrar descarga:", err);
+      }
+    }
+
+    // Cargar contador al iniciar
+    actualizarContadorDescargas();
 
     // Initial load of live rankings when DOM is fully loaded and script is parsed
     fetchRankings(1);
