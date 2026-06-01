@@ -33,6 +33,7 @@ export async function POST(request: Request) {
 
     // 3. Guardar en Upstash Redis
     await redis.set('onlines_count', onlineCount);
+    await redis.set('last_online_update', Date.now());
     console.log("Actualización exitosa. Usuarios online:", onlineCount);
 
     return NextResponse.json({ success: true, updated: onlineCount }, { status: 200 });

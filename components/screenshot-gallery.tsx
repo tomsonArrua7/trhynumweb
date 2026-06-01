@@ -45,7 +45,7 @@ export function ScreenshotGallery() {
               {screenshots.map((shot) => (
                 <div key={shot.id} className="relative h-full w-full flex-shrink-0">
                   <Image
-                    src={`/assets/foto${shot.id}.png`}
+                    src={`/assets/foto${shot.id}.webp`}
                     alt={shot.title}
                     fill
                     className="object-contain p-2"

@@ -8,7 +8,7 @@ export function Hero() {
       {/* Background */}
       <div className="absolute inset-0">
         <Image
-          src="/assets/hero_background.png"
+          src="/assets/hero_background.webp"
           alt="Fortaleza de Trhynum"
           fill
           className="object-cover brightness-[0.35] contrast-125 saturate-0"

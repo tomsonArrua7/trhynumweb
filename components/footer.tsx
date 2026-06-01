@@ -12,7 +12,7 @@ export function Footer() {
           {/* Logo Area */}
           <div className="relative h-12 w-48 opacity-80 hover:opacity-100 transition-opacity">
             <Image 
-              src="/assets/logo_metal.png" 
+              src="/assets/logo_metal.webp" 
               alt="TrhynumAO" 
               fill 
               className="object-contain"

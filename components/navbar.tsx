@@ -17,7 +17,7 @@ export function Navbar() {
           <Link href="/" className="group flex items-center gap-2 transition-transform hover:scale-105">
             <div className="relative h-10 w-32 sm:h-12 sm:w-48">
               <Image 
-                src="/assets/logo_metal.png" 
+                src="/assets/logo_metal.webp" 
                 alt="TrhynumAO" 
                 fill 
                 className="object-contain drop-shadow-[0_0_8px_rgba(255,0,0,0.3)]"

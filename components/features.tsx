@@ -6,19 +6,19 @@ const features = [
   {
     title: "Interfaz Clásica",
     description: "Una experiencia de usuario optimizada que mantiene la esencia del Argentum Online.",
-    image: "/assets/foto3.png",
+    image: "/assets/foto3.webp",
     icon: Shield,
   },
   {
     title: "Misiones y Desafíos",
     description: "Sistemas de misiones únicos para obtener recompensas y puntos de canje.",
-    image: "/assets/foto4.png",
+    image: "/assets/foto4.webp",
     icon: Zap,
   },
   {
     title: "Agite de Selección",
     description: "Sistemas de retos 1v1 y 2v2 balanceados para la mejor experiencia competitiva.",
-    image: "/assets/foto2.png",
+    image: "/assets/foto2.webp",
     icon: Swords,
     isSprite: true,
   },

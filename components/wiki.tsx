@@ -36,7 +36,7 @@ const wikiSections = [
     id: "evolucion",
     icon: Zap,
     title: "Evolución y Zonas",
-    image: "/assets/character_render.png",
+    image: "/assets/character_render.webp",
     content: `El nivel máximo es **45**. El servidor te guía automáticamente por zonas de leveo según tu nivel.`,
     table: {
       headers: ["Nivel", "Zona"],
@@ -54,7 +54,7 @@ const wikiSections = [
     id: "retos",
     icon: Swords,
     title: "Sistema de Retos",
-    image: "/assets/arena_retos.png",
+    image: "/assets/arena_retos.webp",
     content: `El sistema de combate directo del servidor. Tres modalidades, todas sin respawn.`,
     cards: [
       {
@@ -96,7 +96,7 @@ const wikiSections = [
     id: "deathmatch",
     icon: Skull,
     title: "Deathmatch",
-    image: "/assets/deathmatch_banner.png",
+    image: "/assets/deathmatch_banner.webp",
     content: `Cuando el servidor anuncia un Deathmatch, escribí /PARTICIPAR para inscribirte.`,
     cards: [
       {
@@ -116,7 +116,7 @@ const wikiSections = [
     id: "rankings",
     icon: Trophy,
     title: "Rankings Semanales",
-    image: "/assets/ranking_trophy.png",
+    image: "/assets/ranking_trophy.webp",
     content: `Dos rankings independientes que se resetean cada 7 días. Al final de cada semana, el Top 1 es coronado con anuncio global.`,
     table: {
       headers: ["Ranking", "Premio Top 1"],
@@ -131,7 +131,7 @@ const wikiSections = [
     id: "clanes",
     icon: Shield,
     title: "Clanes y Gremios",
-    image: "/assets/clan_banner.png",
+    image: "/assets/clan_banner.webp",
     content: `Los clanes son el corazón del agite organizado. Alcanzá el nivel y oro requeridos, luego usá el menú de gremio para crear el tuyo.`,
     cards: [
       {
@@ -193,7 +193,7 @@ export function Wiki() {
         <div className="mb-20 flex flex-col items-center text-center">
           <div className="relative mb-8 h-48 sm:h-64 w-full max-w-4xl overflow-hidden border-2 border-border shadow-2xl">
             <Image
-              src="/assets/wiki_banner.png"
+              src="/assets/wiki_banner.webp"
               alt="Biblioteca de Trhynum"
               fill
               className="object-cover brightness-50"
