@@ -131,6 +131,120 @@
     @keyframes shine {
       to { background-position: 200% center; }
     }
+
+    /* Premium visual improvements */
+    .glow-radial-red {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(139, 0, 0, 0.15) 0%, rgba(139, 0, 0, 0) 70%);
+      pointer-events: none;
+      filter: blur(40px);
+      z-index: 0;
+    }
+    .glow-radial-gold {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.12) 0%, rgba(184, 134, 11, 0) 70%);
+      pointer-events: none;
+      filter: blur(40px);
+      z-index: 0;
+    }
+    /* Hover effects for premium medieval texture boxes */
+    .texture-iron {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .texture-iron:hover {
+      transform: translateY(-4px);
+      border-color: #8b0000 !important;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.8), 0 15px 35px rgba(139, 0, 0, 0.15) !important;
+    }
+    /* Gold button metal shine effect */
+    .btn-shine-gold {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shine-gold::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 215, 0, 0.2), transparent);
+      transform: skewX(-25deg);
+      transition: 0.75s;
+    }
+    .btn-shine-gold:hover::after {
+      left: 125%;
+    }
+    /* Tooltip styles */
+    .item-tooltip {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      background: linear-gradient(135deg, #111118 0%, #08080c 100%);
+      border: 1px solid #b8860b;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.8), 0 0 10px rgba(184, 134, 11, 0.15);
+      padding: 10px 14px;
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      line-height: 1.4;
+      max-width: 220px;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+    }
+    .item-tooltip.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    /* Lightbox Modal styles */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background-color: rgba(3, 3, 5, 0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border: 3px solid #2a2a3e;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139, 0, 0, 0.1);
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .lightbox-modal.active .lightbox-img {
+      transform: scale(1);
+    }
+    /* Dot indicators - Romboides */
+    .dot-rombo {
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+      border: 1px solid #2a2a3e;
+      background-color: #0d0d14;
+      transition: all 0.3s ease;
+    }
+    .dot-rombo.active {
+      background-color: #8b0000 !important;
+      border-color: #ffd700 !important;
+      box-shadow: 0 0 10px rgba(139, 0, 0, 0.8) !important;
+      transform: rotate(45deg) scale(1.2) !important;
+    }
   </style>
 </head>
 <body class="font-sans antialiased bg-[#050508]">
@@ -338,28 +452,28 @@
           <!-- Slides Container -->
           <div id="carousel-slides" class="w-full flex h-full transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/image1.webp" alt="Captura 1" class="w-full h-full object-contain p-2" />
+              <img src="assets/image1.webp" alt="Captura 1" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/image3.webp" alt="Captura 2" class="w-full h-full object-contain p-2" />
+              <img src="assets/image3.webp" alt="Captura 2" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/foto1.webp" alt="Captura 3" class="w-full h-full object-contain p-2" />
+              <img src="assets/foto1.webp" alt="Captura 3" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/foto2.webp" alt="Captura 4" class="w-full h-full object-contain p-2" />
+              <img src="assets/foto2.webp" alt="Captura 4" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/foto3.webp" alt="Captura 5" class="w-full h-full object-contain p-2" />
+              <img src="assets/foto3.webp" alt="Captura 5" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/foto4.webp" alt="Captura 6" class="w-full h-full object-contain p-2" />
+              <img src="assets/foto4.webp" alt="Captura 6" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/foto5.webp" alt="Captura 7" class="w-full h-full object-contain p-2" />
+              <img src="assets/foto5.webp" alt="Captura 7" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
             <div class="relative h-full w-full flex-shrink-0">
-              <img src="assets/foto6.webp" alt="Captura 8" class="w-full h-full object-contain p-2" />
+              <img src="assets/foto6.webp" alt="Captura 8" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
           </div>
 
@@ -373,8 +487,14 @@
         </div>
 
         <!-- Dots Indicators -->
-        <div class="mt-6 flex justify-center gap-3" id="carousel-dots">
-          <!-- Populated by JS -->
+        <div class="mt-6 flex justify-center gap-3" id="carousel-dots"></div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+          <button class="absolute top-6 right-6 text-white text-3xl hover:text-red-500 transition-colors focus:outline-none" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+          </button>
+          <img id="lightbox-img" class="lightbox-img" src="" alt="Lightbox View" onclick="event.stopPropagation()" />
         </div>
       </div>
 
@@ -403,8 +523,11 @@
           ];
           items.forEach(id => {
             document.write(`
-              <div class="group relative flex flex-col items-center">
-                <div class="relative h-12 w-12 sm:h-14 sm:w-14 bg-black/55 border border-slate-800 transition-all duration-300 group-hover:border-red-600/40 group-hover:shadow-[0_0_15px_rgba(220,38,38,0.2)]">
+              <div class="group relative flex flex-col items-center" 
+                   onmouseenter="showItemTooltip(event, '${id}')" 
+                   onmouseleave="hideItemTooltip()"
+                   onmousemove="moveItemTooltip(event)">
+                <div class="relative h-12 w-12 sm:h-14 sm:w-14 bg-black/55 border border-slate-800 transition-all duration-300 group-hover:border-red-600/40 group-hover:shadow-[0_0_15px_rgba(220,38,38,0.2)] cursor-help">
                   <img src="assets/${id}.bmp" alt="Item ${id}" class="ao-sprite object-contain p-2 w-full h-full" />
                 </div>
               </div>
@@ -414,6 +537,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Dynamic Tooltip Container -->
+  <div id="item-tooltip" class="item-tooltip"></div>
 
   <!-- CENTRO DE DESCARGAS -->
   <section id="descargas" class="texture-stone relative py-20 bg-[#050508] border-t border-obsidian-border">
@@ -1423,6 +1549,82 @@
   <!-- ========================================== -->
   <script>
     // -------------------------------------------------------------
+    // Item Sprites Tooltip Dictionary & Logic
+    // -------------------------------------------------------------
+    const itemData = {
+      "195": { name: "Escudo de Hierro", desc: "Forjado por herreros enanos. Excelente protección física.", stats: "Defensa: +12" },
+      "3": { name: "Poción Roja", desc: "Restaura la vitalidad del guerrero de forma instantánea.", stats: "Efecto: +50 HP" },
+      "895": { name: "Túnica de Mago", desc: "Trenzada con hilos mágicos protectores del templo.", stats: "Defensa: +8, Maná: +25" },
+      "897": { name: "Báculo de Fresno", desc: "Canaliza hechizos ofensivos elementales de gran poder.", stats: "Daño Mágico: +15%" },
+      "2023": { name: "Túnica Druida", desc: "Sintonizada con las fuerzas naturales del bosque.", stats: "Defensa: +10, Evasión: +5%" },
+      "13619": { name: "Corona del Rey", desc: "Símbolo de poder supremo y dominación territorial.", stats: "Defensa: +20, Carisma: +10" },
+      "16023": { name: "Casco de Plata", desc: "Casco templado que brilla en el campo de batalla.", stats: "Defensa: +15" },
+      "16036": { name: "Espada de Plata", desc: "Arma bendecida ideal para cazar demonios en dungeons.", stats: "Daño Físico: 28-36" },
+      "16038": { name: "Daga del Caos", desc: "Arma rápida imbuida en veneno oscuro de catacumbas.", stats: "Daño Físico: 18-24, Veneno: +2" },
+      "16040": { name: "Arco de Elfo", desc: "Tallado en madera sagrada del bosque de elfos.", stats: "Daño Físico: 22-28, Rango: +5" },
+      "16044": { name: "Anillo del Poder", desc: "Otorga una fuerza sobrehumana y aumento del HP.", stats: "Fuerza: +5, HP Máx: +20" },
+      "16052": { name: "Laúd Épico", desc: "Instrumento legendario capaz de calmar bestias.", stats: "Efecto: Potencia Doma y Música" },
+      "16072": { name: "Gema de Fundación", desc: "Requerida por líderes de clan para fundar en Ullathorpe.", stats: "Consumible de Clan" },
+      "16092": { name: "Armadura de Placas", desc: "Pesada armadura de metal para luchadores aguerridos.", stats: "Defensa: +25, Velocidad: -5%" },
+      "16102": { name: "Yelmo de Hierro", desc: "Protección pesada para el cráneo del duelista.", stats: "Defensa: +10" },
+      "16114": { name: "Espada Bastarda", desc: "Una espada a dos manos con un filo devastador.", stats: "Daño Físico: 35-45" },
+      "16116": { name: "Martillo de Guerra", desc: "Capaz de destrozar los huesos de cualquier oponente.", stats: "Daño Físico: 30-40" },
+      "16118": { name: "Escudo Imperial", desc: "El escudo definitivo de la facción ciudadana.", stats: "Defensa: +22" },
+      "16120": { name: "Túnica Criminal", desc: "Vestimenta resistente portada por los rebeldes.", stats: "Defensa: +12, Evasión: +8%" },
+      "16122": { name: "Guadaña de la Muerte", desc: "Filo maldito que recolecta las almas caídas.", stats: "Daño Físico: 42-50" },
+      "16124": { name: "Tarántula Invocada", desc: "Permite invocar un arácnido letal en combate.", stats: "Efecto: Invoca Mascota" },
+      "16135": { name: "Amuleto de Mana", desc: "Multiplica el flujo energético del mago.", stats: "Recuperación Maná: +20%" },
+      "16136": { name: "Poción Azul", desc: "Restaura instantáneamente las reservas de maná.", stats: "Efecto: +100 Maná" },
+      "18206": { name: "Gema de Sangre", desc: "Gema mística que gotea poder y se gana en Deathmatch.", stats: "Material de Canje" },
+      "462": { name: "Anillo de Oro", desc: "Anillo lujoso que aumenta la suerte al lotear.", stats: "Suerte: +10%" },
+      "464": { name: "Anillo de Zafiro", desc: "Escudo místico contra hechizos elementales.", stats: "Resistencia Mágica: +15%" },
+      "466": { name: "Anillo de Rubí", desc: "Aumenta la fuerza física de los luchadores.", stats: "Fuerza: +8" },
+      "697": { name: "Túnica de Druida Élite", desc: "El manto sagrado de los druidas ancianos.", stats: "Defensa: +14, Evasión: +10%" },
+      "698": { name: "Túnica de Asesino", desc: "Ligera y oscura, optimizada para apuñalar en las sombras.", stats: "Defensa: +10, Epuñalar: +15%" },
+      "699": { name: "Sombrero de Mago", desc: "Sombrero puntiagudo que aumenta el poder mental.", stats: "Daño Mágico: +8%" },
+      "700": { name: "Corona de Canje", desc: "Solo portada por los campeones del ranking semanal.", stats: "Defensa: +25, Carisma: +15" },
+      "704": { name: "Casco de Canje", desc: "Casco sagrado templado con oro de canje.", stats: "Defensa: +18" },
+      "705": { name: "Escudo de Canje", desc: "Escudo legendario para proteger el reino.", stats: "Defensa: +26" },
+      "706": { name: "Espada de Canje", desc: "El arma definitiva del servidor. Un golpe letal.", stats: "Daño Físico: 45-55" },
+      "840": { name: "Flauta de Elfo", desc: "Permite encantar animales y criaturas en Ullathorpe.", stats: "Efecto: Doma Animal" }
+    };
+
+    const tooltipEl = document.getElementById("item-tooltip");
+
+    function showItemTooltip(e, id) {
+      const data = itemData[id];
+      if (!data || !tooltipEl) return;
+
+      tooltipEl.innerHTML = `
+        <div class="font-serif text-[11px] font-bold text-gold tracking-wide border-b border-gold/20 pb-1 mb-1 uppercase">${data.name}</div>
+        <div class="text-[10px] text-slate-400 leading-normal mb-1 italic">"${data.desc}"</div>
+        <div class="text-[10px] font-bold text-red-500 tracking-wider uppercase">${data.stats}</div>
+      `;
+      
+      tooltipEl.classList.add("active");
+      moveItemTooltip(e);
+    }
+
+    function hideItemTooltip() {
+      if (tooltipEl) tooltipEl.classList.remove("active");
+    }
+
+    function moveItemTooltip(e) {
+      if (!tooltipEl) return;
+      const x = e.clientX + 15;
+      const y = e.clientY + 15;
+      
+      const width = tooltipEl.offsetWidth || 180;
+      const height = tooltipEl.offsetHeight || 80;
+      
+      const finalX = (x + width > window.innerWidth) ? e.clientX - width - 15 : x;
+      const finalY = (y + height > window.innerHeight) ? e.clientY - height - 15 : y;
+      
+      tooltipEl.style.left = `${finalX}px`;
+      tooltipEl.style.top = `${finalY}px`;
+    }
+
+    // -------------------------------------------------------------
     // Mobile Drawer Navbar Toggle
     // -------------------------------------------------------------
     function toggleMobileMenu() {
@@ -1452,12 +1654,12 @@
     const slides = document.getElementById("carousel-slides");
     const totalSlides = slides ? slides.children.length : 0;
 
-    // Render indicators
+    // Render indicators as rombos
     const dotsContainer = document.getElementById("carousel-dots");
     if (dotsContainer && totalSlides > 0) {
       for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement("button");
-        dot.className = `h-2 w-8 transition-all ${i === 0 ? "bg-red-700 shadow-[0_0_10px_rgba(255,0,0,0.5)]" : "bg-slate-800 hover:bg-red-700/50"}`;
+        dot.className = `dot-rombo ${i === 0 ? "active" : ""}`;
         dot.onclick = () => showSlide(i);
         dotsContainer.appendChild(dot);
       }
@@ -1465,15 +1667,17 @@
 
     function showSlide(index) {
       slideIndex = (index + totalSlides) % totalSlides;
-      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+      if (slides) slides.style.transform = `translateX(-${slideIndex * 100}%)`;
       
       // Update dot states
-      const dots = dotsContainer.getElementsByTagName("button");
-      for (let i = 0; i < dots.length; i++) {
-        if (i === slideIndex) {
-          dots[i].className = "h-2 w-8 transition-all bg-red-700 shadow-[0_0_10px_rgba(255,0,0,0.5)]";
-        } else {
-          dots[i].className = "h-2 w-8 transition-all bg-slate-800 hover:bg-red-700/50";
+      if (dotsContainer) {
+        const dots = dotsContainer.getElementsByTagName("button");
+        for (let i = 0; i < dots.length; i++) {
+          if (i === slideIndex) {
+            dots[i].classList.add("active");
+          } else {
+            dots[i].classList.remove("active");
+          }
         }
       }
     }
@@ -1488,6 +1692,25 @@
 
     // Auto rotate every 8 seconds
     setInterval(nextSlide, 8000);
+
+    // -------------------------------------------------------------
+    // Lightbox Logic
+    // -------------------------------------------------------------
+    const lightboxModal = document.getElementById("lightbox-modal");
+    const lightboxImg = document.getElementById("lightbox-img");
+
+    function openLightbox(src) {
+      if (!lightboxModal || !lightboxImg) return;
+      lightboxImg.src = src;
+      lightboxModal.classList.add("active");
+      document.body.style.overflow = "hidden"; // Disable scroll when active
+    }
+
+    function closeLightbox() {
+      if (!lightboxModal) return;
+      lightboxModal.classList.remove("active");
+      document.body.style.overflow = ""; // Enable scroll
+    }
 
 
     // -------------------------------------------------------------
@@ -1851,15 +2074,26 @@
         }
       });
 
-      // 2. Toggle content panes visibility
+      // 2. Toggle content panes visibility with fluid transition
       wikiTabs.forEach(id => {
         const pane = document.getElementById(`wiki-pane-${id}`);
         if (!pane) return;
         if (id === tabId) {
           pane.classList.remove("hidden");
-          pane.classList.add("animate-in", "fade-in", "slide-in-from-bottom-4", "duration-500");
+          // Reset styles first for animation replay
+          pane.style.opacity = "0";
+          pane.style.transform = "translateY(10px)";
+          pane.style.transition = "opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)";
+          
+          // Force layout reflow
+          void pane.offsetHeight;
+          
+          pane.style.opacity = "1";
+          pane.style.transform = "translateY(0px)";
         } else {
           pane.classList.add("hidden");
+          pane.style.opacity = "0";
+          pane.style.transform = "translateY(10px)";
         }
       });
     }
