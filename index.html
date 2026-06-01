@@ -1617,6 +1617,32 @@
     };
 
     async function fetchRankings(category, force = false) {
+      // Rankings momentáneamente inhabilitados por mantenimiento
+      const loadingEl = document.getElementById("ranking-loading");
+      const errorEl = document.getElementById("ranking-error");
+      const tableContainerEl = document.getElementById("ranking-table-container");
+      const tableBodyEl = document.getElementById("ranking-table-body");
+      const descEl = document.getElementById("ranking-table-desc");
+      const rewardEl = document.getElementById("ranking-reward-badge");
+      const eloGuideEl = document.getElementById("ranking-elo-guide");
+
+      if (descEl) descEl.textContent = rankingDetails[category]?.desc || "";
+      if (rewardEl) rewardEl.textContent = "Mantenimiento";
+      if (eloGuideEl) eloGuideEl.classList.add("hidden");
+      if (loadingEl) loadingEl.classList.add("hidden");
+      if (errorEl) errorEl.classList.add("hidden");
+      if (tableContainerEl) tableContainerEl.classList.remove("hidden");
+      if (tableBodyEl) {
+        tableBodyEl.innerHTML = `
+          <tr>
+            <td colspan="3" class="px-5 py-12 text-center text-slate-400 font-serif text-sm italic">
+              ⚔️ Los rankings se encuentran momentáneamente inhabilitados por mantenimiento. ¡Regresarán pronto! ⚔️
+            </td>
+          </tr>
+        `;
+      }
+      return;
+
       if (isFetchingRankings) return;
       isFetchingRankings = true;
       

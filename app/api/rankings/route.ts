@@ -59,6 +59,8 @@ const mockRankings: Record<string, any[]> = {
 };
 
 export async function GET(req: Request) {
+  return NextResponse.json({ success: false, error: "El ranking está momentáneamente deshabilitado por mantenimiento." });
+
   try {
     const { searchParams } = new URL(req.url);
     const category = searchParams.get("category") || "1";
