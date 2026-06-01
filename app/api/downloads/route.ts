@@ -3,8 +3,8 @@ import { Redis } from "@upstash/redis";
 
 export async function GET() {
   try {
-    const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
-    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    const redisUrl = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
 
     let count = 0;
     if (redisUrl && redisToken && redisUrl.startsWith("https")) {
@@ -31,8 +31,8 @@ export async function GET() {
 
 export async function POST() {
   try {
-    const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
-    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    const redisUrl = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
 
     let count = 1;
     if (redisUrl && redisToken && redisUrl.startsWith("https")) {

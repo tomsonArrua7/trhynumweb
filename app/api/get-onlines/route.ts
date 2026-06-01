@@ -6,8 +6,8 @@ export const runtime = 'edge';
 
 export async function GET() {
   try {
-    const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
-    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
+    const redisUrl = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
     let onlines = 0;
 
     if (redisUrl && redisToken && redisUrl.startsWith("https")) {
