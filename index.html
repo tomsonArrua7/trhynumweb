@@ -1635,6 +1635,7 @@
   <!-- VANILLA JAVASCRIPT FOR ACTIONS & STATUS -->
   <!-- ========================================== -->
   <script>
+    (function() {
     // -------------------------------------------------------------
     // Item Sprites Tooltip Dictionary & Logic
     // -------------------------------------------------------------
@@ -2301,6 +2302,28 @@
 
     // Initial load of live rankings when DOM is fully loaded and script is parsed
     fetchRankings(1);
+
+    // Export functions to window to prevent undefined references in HTML inline events
+    window.showItemTooltip = showItemTooltip;
+    window.hideItemTooltip = hideItemTooltip;
+    window.moveItemTooltip = moveItemTooltip;
+    window.toggleMobileMenu = toggleMobileMenu;
+    window.initCarousel = initCarousel;
+    window.showSlide = showSlide;
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+    window.openLightbox = openLightbox;
+    window.closeLightbox = closeLightbox;
+    window.updateServerStatus = updateServerStatus;
+    window.fetchRankings = fetchRankings;
+    window.changeRankingCategory = changeRankingCategory;
+    window.retryFetchRankings = retryFetchRankings;
+    window.refreshRankings = refreshRankings;
+    window.switchWikiTab = switchWikiTab;
+    window.procesarDonacion = procesarDonacion;
+    window.actualizarContadorDescargas = actualizarContadorDescargas;
+    window.registrarDescarga = registrarDescarga;
+    })();
   </script>
 </body>
 </html>
