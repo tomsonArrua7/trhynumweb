@@ -1635,11 +1635,10 @@
   <!-- VANILLA JAVASCRIPT FOR ACTIONS & STATUS -->
   <!-- ========================================== -->
   <script>
-    (function() {
     // -------------------------------------------------------------
     // Item Sprites Tooltip Dictionary & Logic
     // -------------------------------------------------------------
-    const itemData = {
+    var itemData = {
       "195": { name: "Escudo de Hierro", desc: "Forjado por herreros enanos. Excelente protección física.", stats: "Defensa: +12" },
       "3": { name: "Poción Roja", desc: "Restaura la vitalidad del guerrero de forma instantánea.", stats: "Efecto: +50 HP" },
       "895": { name: "Túnica de Mago", desc: "Trenzada con hilos mágicos protectores del templo.", stats: "Defensa: +8, Maná: +25" },
@@ -1739,7 +1738,7 @@
     // -------------------------------------------------------------
     // Carousel logic (Resilient to React client hydration)
     // -------------------------------------------------------------
-    let slideIndex = 0;
+    var slideIndex = slideIndex || 0;
 
     function initCarousel() {
       const slides = document.getElementById("carousel-slides");
@@ -1912,11 +1911,11 @@
     // -------------------------------------------------------------
     // Rankings Real-Time Fetch & Display Logic
     // -------------------------------------------------------------
-    let currentRankingCategory = 1;
-    let isFetchingRankings = false;
+    var currentRankingCategory = currentRankingCategory || 1;
+    var isFetchingRankings = isFetchingRankings || false;
 
     // Dictionary of details for each category
-    const rankingDetails = {
+    var rankingDetails = {
       1: { 
         desc: "Los 10 mejores duelistas de retos 1vs1 del continente", 
         reward: "Premio: 200 Canjes",
@@ -2162,7 +2161,7 @@
     // -------------------------------------------------------------
     // Wiki Sections Definitions & Tab Switching Logic
     // -------------------------------------------------------------
-    const wikiTabs = ["leveo", "retos", "eventos", "clanes", "cvc", "canjes", "tpoints", "varios", "soporte"];
+    var wikiTabs = ["leveo", "retos", "eventos", "clanes", "cvc", "canjes", "tpoints", "varios", "soporte"];
 
     function switchWikiTab(tabId) {
       // 1. Update button visual states
@@ -2302,28 +2301,6 @@
 
     // Initial load of live rankings when DOM is fully loaded and script is parsed
     fetchRankings(1);
-
-    // Export functions to window to prevent undefined references in HTML inline events
-    window.showItemTooltip = showItemTooltip;
-    window.hideItemTooltip = hideItemTooltip;
-    window.moveItemTooltip = moveItemTooltip;
-    window.toggleMobileMenu = toggleMobileMenu;
-    window.initCarousel = initCarousel;
-    window.showSlide = showSlide;
-    window.nextSlide = nextSlide;
-    window.prevSlide = prevSlide;
-    window.openLightbox = openLightbox;
-    window.closeLightbox = closeLightbox;
-    window.updateServerStatus = updateServerStatus;
-    window.fetchRankings = fetchRankings;
-    window.changeRankingCategory = changeRankingCategory;
-    window.retryFetchRankings = retryFetchRankings;
-    window.refreshRankings = refreshRankings;
-    window.switchWikiTab = switchWikiTab;
-    window.procesarDonacion = procesarDonacion;
-    window.actualizarContadorDescargas = actualizarContadorDescargas;
-    window.registrarDescarga = registrarDescarga;
-    })();
   </script>
 </body>
 </html>
