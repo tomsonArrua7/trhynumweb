@@ -9,13 +9,16 @@ export function ScriptHydrator() {
     scripts.forEach((script) => {
       const content = script.textContent || "";
       if (content.includes("itemData") || content.includes("initCarousel")) {
-        // To avoid double evaluation if it was somehow evaluated, check our flag
-        if (!script.getAttribute("data-client-evaluated")) {
-          console.log("[ScriptHydrator] Executing interactive scripts on client...");
+        // Prevent multiple client evaluations by setting a global window flag
+        const win = window as any;
+        if (!win.__script_evaluated) {
+          console.log("[ScriptHydrator] Evaluating interactive scripts globally on document.body...");
+          win.__script_evaluated = true;
+          
           const newScript = document.createElement("script");
           newScript.textContent = content;
           newScript.setAttribute("data-client-evaluated", "true");
-          script.parentNode?.replaceChild(newScript, script);
+          document.body.appendChild(newScript);
         }
       }
     });
