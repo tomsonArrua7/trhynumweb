@@ -475,6 +475,27 @@
             <div class="relative h-full w-full flex-shrink-0">
               <img src="assets/foto6.webp" alt="Captura 8" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
             </div>
+            <div class="relative h-full w-full flex-shrink-0">
+              <img src="assets/Screenshot_01062026_212710.webp" alt="Captura 9" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
+            </div>
+            <div class="relative h-full w-full flex-shrink-0">
+              <img src="assets/Screenshot_01062026_214553.webp" alt="Captura 10" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
+            </div>
+            <div class="relative h-full w-full flex-shrink-0">
+              <img src="assets/Screenshot_01062026_215924.webp" alt="Captura 11" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
+            </div>
+            <div class="relative h-full w-full flex-shrink-0">
+              <img src="assets/Screenshot_01062026_220128.webp" alt="Captura 12" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
+            </div>
+            <div class="relative h-full w-full flex-shrink-0">
+              <img src="assets/Screenshot_01062026_220203.webp" alt="Captura 13" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
+            </div>
+            <div class="relative h-full w-full flex-shrink-0">
+              <img src="assets/Screenshot_01062026_220217.webp" alt="Captura 14" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
+            </div>
+            <div class="relative h-full w-full flex-shrink-0">
+              <img src="assets/Screenshot_01062026_233306.webp" alt="Captura 15" class="w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300" onclick="openLightbox(this.src)" />
+            </div>
           </div>
 
           <!-- Overlay Nav Buttons -->
@@ -1655,10 +1676,9 @@
       "840": { name: "Flauta de Elfo", desc: "Permite encantar animales y criaturas en Ullathorpe.", stats: "Efecto: Doma Animal" }
     };
 
-    const tooltipEl = document.getElementById("item-tooltip");
-
     function showItemTooltip(e, id) {
       const data = itemData[id];
+      const tooltipEl = document.getElementById("item-tooltip");
       if (!data || !tooltipEl) return;
 
       tooltipEl.innerHTML = `
@@ -1672,10 +1692,12 @@
     }
 
     function hideItemTooltip() {
+      const tooltipEl = document.getElementById("item-tooltip");
       if (tooltipEl) tooltipEl.classList.remove("active");
     }
 
     function moveItemTooltip(e) {
+      const tooltipEl = document.getElementById("item-tooltip");
       if (!tooltipEl) return;
       const x = e.clientX + 15;
       const y = e.clientY + 15;
@@ -1714,28 +1736,41 @@
     }
 
     // -------------------------------------------------------------
-    // Carousel logic
+    // Carousel logic (Resilient to React client hydration)
     // -------------------------------------------------------------
     let slideIndex = 0;
-    const slides = document.getElementById("carousel-slides");
-    const totalSlides = slides ? slides.children.length : 0;
 
-    // Render indicators as rombos
-    const dotsContainer = document.getElementById("carousel-dots");
-    if (dotsContainer && totalSlides > 0) {
-      for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement("button");
-        dot.className = `dot-rombo ${i === 0 ? "active" : ""}`;
-        dot.onclick = () => showSlide(i);
-        dotsContainer.appendChild(dot);
+    function initCarousel() {
+      const slides = document.getElementById("carousel-slides");
+      const totalSlides = slides ? slides.children.length : 0;
+      const dotsContainer = document.getElementById("carousel-dots");
+      
+      if (!dotsContainer || totalSlides === 0) return;
+      
+      // If dots were wiped by React hydration, re-generate them dynamically
+      if (dotsContainer.children.length === 0) {
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement("button");
+          dot.className = `dot-rombo ${i === slideIndex ? "active" : ""}`;
+          dot.onclick = () => showSlide(i);
+          dotsContainer.appendChild(dot);
+        }
       }
     }
 
     function showSlide(index) {
+      const slides = document.getElementById("carousel-slides");
+      const totalSlides = slides ? slides.children.length : 0;
+      if (totalSlides === 0) return;
+      
+      // Ensure dots and state are initialized/healed
+      initCarousel();
+      
       slideIndex = (index + totalSlides) % totalSlides;
       if (slides) slides.style.transform = `translateX(-${slideIndex * 100}%)`;
       
       // Update dot states
+      const dotsContainer = document.getElementById("carousel-dots");
       if (dotsContainer) {
         const dots = dotsContainer.getElementsByTagName("button");
         for (let i = 0; i < dots.length; i++) {
@@ -1756,16 +1791,23 @@
       showSlide(slideIndex - 1);
     }
 
+    // Run carousel initialization on DOM load
+    window.addEventListener("DOMContentLoaded", () => {
+      initCarousel();
+    });
+
+    // Periodically heal indicators and check for React client-side hydration wipes
+    setInterval(initCarousel, 1000);
+
     // Auto rotate every 8 seconds
     setInterval(nextSlide, 8000);
 
     // -------------------------------------------------------------
-    // Lightbox Logic
+    // Lightbox Logic (Resilient to React client hydration)
     // -------------------------------------------------------------
-    const lightboxModal = document.getElementById("lightbox-modal");
-    const lightboxImg = document.getElementById("lightbox-img");
-
     function openLightbox(src) {
+      const lightboxModal = document.getElementById("lightbox-modal");
+      const lightboxImg = document.getElementById("lightbox-img");
       if (!lightboxModal || !lightboxImg) return;
       lightboxImg.src = src;
       lightboxModal.classList.add("active");
@@ -1773,6 +1815,7 @@
     }
 
     function closeLightbox() {
+      const lightboxModal = document.getElementById("lightbox-modal");
       if (!lightboxModal) return;
       lightboxModal.classList.remove("active");
       document.body.style.overflow = ""; // Enable scroll
