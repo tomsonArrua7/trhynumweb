@@ -3,6 +3,10 @@
 import { useState, useEffect, useRef } from "react"
 
 const screenshots = [
+  { id: 12, src: "/assets/Screenshot_01062026_220128.webp", title: "Captura 12" },
+  { id: 13, src: "/assets/Screenshot_01062026_220203.webp", title: "Captura 13" },
+  { id: 14, src: "/assets/Screenshot_01062026_220217.webp", title: "Captura 14" },
+  { id: 15, src: "/assets/Screenshot_01062026_233306.webp", title: "Captura 15" },
   { id: 1, src: "/assets/image1.webp", title: "Captura 1" },
   { id: 2, src: "/assets/image3.webp", title: "Captura 2" },
   { id: 3, src: "/assets/foto1.webp", title: "Captura 3" },
@@ -14,11 +18,8 @@ const screenshots = [
   { id: 9, src: "/assets/Screenshot_01062026_212710.webp", title: "Captura 9" },
   { id: 10, src: "/assets/Screenshot_01062026_214553.webp", title: "Captura 10" },
   { id: 11, src: "/assets/Screenshot_01062026_215924.webp", title: "Captura 11" },
-  { id: 12, src: "/assets/Screenshot_01062026_220128.webp", title: "Captura 12" },
-  { id: 13, src: "/assets/Screenshot_01062026_220203.webp", title: "Captura 13" },
-  { id: 14, src: "/assets/Screenshot_01062026_220217.webp", title: "Captura 14" },
-  { id: 15, src: "/assets/Screenshot_01062026_233306.webp", title: "Captura 15" },
 ]
+
 
 export function ScreenshotGallery() {
   const [currentIndex, setCurrentIndex] = useState(0)
