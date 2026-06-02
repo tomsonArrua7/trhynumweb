@@ -1,11 +1,15 @@
 import fs from "fs";
 import path from "path";
+import { ScriptHydrator } from "@/components/script-hydrator";
 
 export default function Home() {
   const filePath = path.join(process.cwd(), "index.html");
   const htmlContent = fs.readFileSync(filePath, "utf8");
 
   return (
-    <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    <>
+      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+      <ScriptHydrator />
+    </>
   );
 }
