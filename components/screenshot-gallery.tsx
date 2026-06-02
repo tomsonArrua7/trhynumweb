@@ -1,8 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight, X } from "lucide-react"
 
 const screenshots = [
   { id: 1, src: "/assets/image1.webp", title: "Captura 1" },
@@ -25,7 +23,7 @@ const screenshots = [
 export function ScreenshotGallery() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
-  const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const timerRef = useRef<any>(null)
 
   // Start or reset the auto-rotation timer
   const startTimer = () => {
@@ -82,13 +80,10 @@ export function ScreenshotGallery() {
             >
               {screenshots.map((shot) => (
                 <div key={shot.id} className="relative h-full w-full flex-shrink-0">
-                  <Image
+                  <img
                     src={shot.src}
                     alt={shot.title}
-                    fill
-                    className="object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
-                    priority={shot.id === 1}
-                    unoptimized
+                    className="absolute inset-0 w-full h-full object-contain p-2 cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
                     onClick={() => setLightboxSrc(shot.src)}
                   />
                 </div>
@@ -98,15 +93,17 @@ export function ScreenshotGallery() {
             {/* Overlay Navigation Buttons */}
             <button 
               onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 p-3 text-red-500 border border-red-950/40 hover:bg-red-800 hover:text-white transition-all z-20 shadow-md cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 p-3 text-red-500 border border-red-950/40 hover:bg-red-800 hover:text-white transition-all z-20 shadow-md cursor-pointer flex items-center justify-center rounded-sm"
+              style={{ minWidth: "48px", minHeight: "48px" }}
             >
-              <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" />
+              <i className="fas fa-chevron-left text-xl"></i>
             </button>
             <button 
               onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 p-3 text-red-500 border border-red-950/40 hover:bg-red-800 hover:text-white transition-all z-20 shadow-md cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 p-3 text-red-500 border border-red-950/40 hover:bg-red-800 hover:text-white transition-all z-20 shadow-md cursor-pointer flex items-center justify-center rounded-sm"
+              style={{ minWidth: "48px", minHeight: "48px" }}
             >
-              <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" />
+              <i className="fas fa-chevron-right text-xl"></i>
             </button>
           </div>
 
@@ -138,10 +135,10 @@ export function ScreenshotGallery() {
           onClick={() => setLightboxSrc(null)}
         >
           <button 
-            className="absolute top-6 right-6 text-white hover:text-red-500 transition-colors focus:outline-none cursor-pointer" 
+            className="absolute top-6 right-6 text-white hover:text-red-500 transition-colors focus:outline-none cursor-pointer flex items-center justify-center" 
             onClick={() => setLightboxSrc(null)}
           >
-            <X className="h-8 w-8" />
+            <i className="fas fa-times text-2xl"></i>
           </button>
           <div className="relative max-w-[90vw] max-h-[85vh] border-3 border-obsidian-border bg-black shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <img 
