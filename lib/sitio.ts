@@ -8,10 +8,12 @@ export const enlaces = {
   trailer: "-13-ApdmUk4",
 }
 
-export const descarga = {
-  directa: "/downloads/Instalador_TrhynumAO.exe",
-  mediafire: "https://www.mediafire.com/file/uzt5yvf7hgblrwl/Instalador_TrhynumAO.exe/file",
-  peso: "47 MB",
+// Cuando este el instalador nuevo: poner su enlace en `directa` (y, si hay, un
+// espejo en `espejo`) y el peso. Con `directa` vacio la web avisa que esta en preparacion.
+export const descarga: { directa: string; espejo: string; peso: string } = {
+  directa: "",
+  espejo: "",
+  peso: "",
 }
 
 export const requisitos: [string, string][] = [

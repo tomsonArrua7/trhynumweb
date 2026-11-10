@@ -23,7 +23,7 @@ export default function Inicio() {
               </p>
               <div className="acciones">
                 <a className="boton boton-principal" href="#descargas">
-                  Descargar el juego <small>{descarga.peso}</small>
+                  Descargar el juego {descarga.peso && <small>{descarga.peso}</small>}
                 </a>
                 <Link className="boton" href="/wiki">
                   Leer la wiki
@@ -164,19 +164,37 @@ export default function Inicio() {
             <h2>Descargá el juego</h2>
             <div className="descarga">
               <div>
-                <div className="acciones">
-                  <a className="boton boton-principal" href={descarga.directa} download>
-                    Descargar el instalador <small>{descarga.peso}</small>
-                  </a>
-                  <a className="boton" href={descarga.mediafire} target="_blank" rel="noopener noreferrer">
-                    Bajar desde MediaFire
-                  </a>
-                </div>
-                <ol className="pasos">
-                  <li>Ejecutá el instalador. Si Windows pregunta, permitilo: es un programa sin firma.</li>
-                  <li>Abrí TrhynumAO y creá tu cuenta desde la pantalla de inicio.</li>
-                  <li>Elegí raza y clase, y entrá. El primer muñeco de entrenamiento está en el Dungeon Newbie.</li>
-                </ol>
+                {descarga.directa ? (
+                  <div className="acciones">
+                    <a className="boton boton-principal" href={descarga.directa}>
+                      Descargar el instalador {descarga.peso && <small>{descarga.peso}</small>}
+                    </a>
+                    {descarga.espejo && (
+                      <a className="boton" href={descarga.espejo} target="_blank" rel="noopener noreferrer">
+                        Enlace alternativo
+                      </a>
+                    )}
+                  </div>
+                ) : (
+                  <>
+                    <p className="entrada">
+                      Estamos preparando el instalador de la versión nueva. Lo publicamos acá y avisamos por Discord
+                      apenas esté.
+                    </p>
+                    <div className="acciones" style={{ marginTop: 22 }}>
+                      <a className="boton boton-principal" href={enlaces.discord} target="_blank" rel="noopener noreferrer">
+                        Entrar al Discord
+                      </a>
+                    </div>
+                  </>
+                )}
+                {descarga.directa && (
+                  <ol className="pasos">
+                    <li>Ejecutá el instalador. Si Windows pregunta, permitilo: es un programa sin firma.</li>
+                    <li>Abrí TrhynumAO y creá tu cuenta desde la pantalla de inicio.</li>
+                    <li>Elegí raza y clase, y entrá. El primer muñeco de entrenamiento está en el Dungeon Newbie.</li>
+                  </ol>
+                )}
                 <p className="nota">
                   ¿Algo no arranca? Probá ejecutarlo como administrador o escribinos por{" "}
                   <a href={enlaces.discord} target="_blank" rel="noopener noreferrer">

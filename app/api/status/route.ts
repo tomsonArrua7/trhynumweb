@@ -7,7 +7,9 @@ import net from "net"
 export const dynamic = "force-static"
 export const revalidate = 60
 
-const HOST = process.env.GAME_HOST || "149.104.76.210"
+// La direccion del servidor no va en el codigo (el repo es publico): se carga en
+// Vercel, en Settings > Environment Variables, como GAME_HOST y GAME_PORT.
+const HOST = process.env.GAME_HOST || ""
 const PORT = Number(process.env.GAME_PORT || 7666)
 
 function probar(): Promise<boolean> {
@@ -29,7 +31,7 @@ function probar(): Promise<boolean> {
 }
 
 export async function GET() {
-  const online = await probar()
+  const online = HOST ? await probar() : null
   return Response.json(
     { online, revisado: Date.now() },
     { headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" } },
