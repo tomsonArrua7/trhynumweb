@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description:
     "Servidor argentino de Argentum Online centrado en el combate entre jugadores: retos, torneos con llave automática, ranking por Elo y un evento nuevo cada 15 minutos.",
-  icons: { icon: "/assets/Icono.ico" },
+  icons: { icon: [{ url: "/marca/icono.svg", type: "image/svg+xml" }] },
   openGraph: {
     title: "TrhynumAO",
     description: "Argentum Online de agite: retos, torneos, Elo y un evento cada 15 minutos.",

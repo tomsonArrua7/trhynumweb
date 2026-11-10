@@ -168,7 +168,7 @@ kbd {
 }
 
 .cabecera .logo {
-  width: 150px;
+  width: 168px;
   flex: none;
 }
 
@@ -265,13 +265,13 @@ kbd {
 }
 
 .portada .logo {
-  width: min(100%, 430px);
-  margin-left: -6px;
+  width: min(100%, 400px);
+  margin-left: -5px;
 }
 
 .portada h1 {
   font-size: clamp(2.5rem, 5.6vw, 4.5rem);
-  margin-top: 20px;
+  margin-top: 30px;
   color: var(--pergamino);
 }
 

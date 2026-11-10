@@ -1,11 +1,17 @@
 import Link from "next/link"
 import { enlaces } from "@/lib/sitio"
 
-export function Logo() {
+// "completo" lleva la linea AO; "compacto" es solo la palabra, para tamanos chicos.
+export function Logo({ completo = false }: { completo?: boolean }) {
   return (
     <span className="logo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/assets/logo.webp" alt="TrhynumAO" width={965} height={296} />
+      <img
+        src={completo ? "/marca/logo.svg" : "/marca/logo-compacto.svg"}
+        alt="TrhynumAO"
+        width={634}
+        height={completo ? 188 : 144}
+      />
     </span>
   )
 }

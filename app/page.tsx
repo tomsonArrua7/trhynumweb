@@ -15,7 +15,7 @@ export default function Inicio() {
         <section className="portada">
           <div className="contenedor">
             <div>
-              <Logo />
+              <Logo completo />
               <h1>Argentum Online para el que entra a pelear</h1>
               <p className="bajada">
                 Llegás a nivel 45 en un rato. Lo que sigue es lo largo: retos, torneos con llave automática, ranking por
