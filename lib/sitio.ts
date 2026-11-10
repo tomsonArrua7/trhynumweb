@@ -40,6 +40,8 @@ export const capturas: Captura[] = [
   { src: "/assets/capturas/skins.webp", alt: "Sastre de Skins: variantes Sombría, Dorada y Glacial de un arco" },
   { src: "/assets/capturas/forjador.webp", alt: "Forjador Arcano: fragmentos, gemas y mejora de armas" },
   { src: "/assets/capturas/tienda.webp", alt: "Tienda de Trhynum Points con kits y cofres" },
+  { src: "/assets/capturas/sala-de-retos.webp", alt: "Sala de retos: baldosas de 1 contra 1 y 2 contra 2, y portales a los dungeons" },
+  { src: "/assets/capturas/opciones.webp", alt: "Opciones del juego: cada ayuda visual se prende o se apaga" },
 ]
 
 export const staff: { nick: string; nombre: string; rol: string }[] = [
