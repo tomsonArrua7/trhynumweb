@@ -1,0 +1,559 @@
+<section id="inicio">
+<h2>Primeros pasos</h2>
+<p>TrhynumAO es un servidor de Argentum Online centrado en el combate entre jugadores: retos, torneos, eventos de facción y un ranking por Elo. El nivel máximo es <b>45</b>. La experiencia se gana rápido a propósito, así que subir de nivel es la parte corta.</p>
+<div class="box"><b>Qué no se usa:</b> el oro no tiene uso en este servidor. Lo que vale son los <b>Puntos de Canje</b>, los <b>puntos de reto y Elo</b> y los <b>Trhynum Points (TP)</b>.</div>
+<h3>Dónde entrenar</h3>
+<p>Cada tramo de nivel tiene su muñeco de entrenamiento: el primer golpe te lleva directo al nivel que indica la tabla.</p>
+<div class="scroll"><table>
+<tr><th>Mapa</th><th>Zona</th><th>Te lleva a nivel</th></tr>
+<tr><td>26</td><td>Dungeon Newbie</td><td>13</td></tr>
+<tr><td>30</td><td>Nivel 13 a 26</td><td>25</td></tr>
+<tr><td>31</td><td>Nivel 26 a 35</td><td>34</td></tr>
+<tr><td>32</td><td>Nivel 35 a 45</td><td>44, y un segundo golpe al 45</td></tr>
+</table></div>
+<h3>Lugares que conviene conocer</h3>
+<ul>
+<li><b>Ullathorpe (mapa 1):</b> la ciudad principal. Desde acá se retan y apuestan duelos. Ahí están el Forjador Arcano y el Sastre de Skins.</li>
+<li><b>Lobby (mapa 88):</b> también sirve para mandar apuestas.</li>
+<li><b>Sala de espera de torneos (mapa 53):</b> adonde van los inscriptos y los que ganan su duelo mientras esperan la próxima ronda.</li>
+<li><b>Torneo Arena 1 a 4 (mapas 93 a 96):</b> los rings del torneo dinámico.</li>
+<li><b>Castillo de Clanes (mapa 90):</b> solo para miembros de un clan, y solo cuando está habilitado.</li>
+</ul>
+</section>
+
+<section id="monedas">
+<h2>Monedas y puntos</h2>
+<div class="chips">
+  <div class="chip"><b>Puntos de Canje</b><span>Torneos, eventos y misiones</span></div>
+  <div class="chip"><b>Puntos de Reto</b><span>Victorias en retos Fast</span></div>
+  <div class="chip"><b>Elo</b><span>Rango competitivo 1 contra 1</span></div>
+  <div class="chip"><b>Trhynum Points</b><span>Tienda, skins y donaciones</span></div>
+</div>
+<h3>Puntos de Canje</h3>
+<p>Son la moneda principal. Se gastan en la ventana de Canjes (<a href="#canjes">items</a>), en subir el nivel de un clan y en retos por canje. Podés pasarle canjes a otro jugador con <code>/TRANSFERIR NICK@CANTIDAD</code>.</p>
+<div class="scroll"><table>
+<tr><th>Fuente</th><th>Canjes</th></tr>
+<tr><td>Torneo dinámico (campeón)</td><td>10 por cada participante</td></tr>
+<tr><td>Deathmatch (ganador)</td><td>15</td></tr>
+<tr><td>Captura de bandera (todo el bando ganador)</td><td>15 cada uno</td></tr>
+<tr><td>Cruzada (todo el bando ganador)</td><td>15 cada uno</td></tr>
+<tr><td>Castillo de Clanes (clan dueño, cada 20 minutos)</td><td>10 a cada miembro conectado</td></tr>
+<tr><td>Isla de la Guerra (facción dueña, cada 20 minutos)</td><td>2 a cada conectado de la facción</td></tr>
+<tr><td>Ranking semanal (1.º de 1 contra 1 / 1.º de 2 contra 2)</td><td>200 / 100</td></tr>
+<tr><td><a href="#misiones">Misiones</a></td><td>de 10 a 125 según la misión</td></tr>
+</table></div>
+<h3>Puntos de Reto</h3>
+<p>Los gana quien vence un <a href="#retos">reto Fast</a> (1 por victoria) y se gastan en túnicas de la ventana de Canjes. Son distintos de los canjes y no se transfieren.</p>
+<h3>Quests y torneos para la jerarquía</h3>
+<p>Los eventos de facción dan además <b>+1 quest completada</b>, y los torneos suman a tus torneos ganados. Los dos cuentan para subir de jerarquía (ver <a href="#facciones">Facciones</a>).</p>
+<h3>Trhynum Points (TP)</h3>
+<p>Se compran con donaciones y se gastan en la Tienda del NPC de Donación y en el Sastre de Skins. Detalles en <a href="#tp">Trhynum Points y tienda</a>.</p>
+</section>
+
+<section id="retos">
+<h2>Retos</h2>
+<p>Hay dos formas de pelear un 1 contra 1 sin esperar a un torneo: el <b>reto por formulario</b>, donde elegís rival y apuesta, y los <b>retos Fast</b> de la Sala de TP, donde entrás a un ring con solo pararte en una baldosa.</p>
+
+<h3>Reto por formulario</h3>
+<p>Escribí <code>/RETAR</code> y se abre la ventana <b>Retar a un jugador</b>.</p>
+<ol>
+<li>Elegí al rival de la lista (el botón de refrescar actualiza los conectados).</li>
+<li>Elegí la modalidad: <b>por canje</b>, <b>por items</b> o <b>por Elo</b>.</li>
+<li>Elegí si se juega <b>1 duelo</b> o <b>al mejor de 3</b>.</li>
+<li>En el reto por canje escribí cuántos Puntos de Canje se apuestan. Podés tildar el bloqueo de items de canjeo.</li>
+<li>Tocá Enviar. A tu rival le aparece <b>¡Desafío recibido!</b> con Aceptar y Rechazar.</li>
+</ol>
+<div class="scroll"><table>
+<tr><th>Modalidad</th><th>En juego</th><th>Al terminar</th></tr>
+<tr><td>Por canje</td><td>Los canjes que apuestan los dos</td><td>El ganador cobra el pozo</td></tr>
+<tr><td>Por items</td><td>Todo el inventario del que pierda</td><td>El perdedor explota: todo cae al piso del ring y vuelve a Ullathorpe</td></tr>
+<tr><td>Por Elo</td><td>Puntos de rango</td><td>El que gana sube y el que pierde baja (ver <a href="#elo">Elo</a>). No se apuestan canjes</td></tr>
+</table></div>
+<ul>
+<li>Los dos tienen que estar vivos y cerca, en Ullathorpe (mapa 1) o en el Lobby (mapa 88).</li>
+<li>Se juega en una de las 10 arenas de apuesta. Si están todas ocupadas, esperás a que se libere una.</li>
+<li>Las series al mejor de 3 se juegan enteras en el mismo ring.</li>
+</ul>
+<div class="box"><b>Reto por items, el botín:</b> cuando se define la serie, el ganador tiene <b>10 segundos</b> para juntar lo que quiera del piso. En ese tiempo el piso del ring es solo suyo. Después sale a Ullathorpe y lo que quedó se borra. Cae todo, incluso los items de canje y los que normalmente no se caen.</div>
+<p>Con <code>/BLOQRETOS</code> bloqueás o desbloqueás que te inviten a retos por items y por canje. Si te llega un desafío que no querés, tocá Rechazar.</p>
+
+<h3>Retos Fast (Sala de TP)</h3>
+<p>En la Sala de TP hay baldosas marcadas de a pares. Cuando dos jugadores pisan las dos baldosas del mismo par, el reto arranca solo.</p>
+<div class="scroll"><table>
+<tr><th>Formato</th><th>Salas</th><th>Cómo</th></tr>
+<tr><td>1 contra 1</td><td>12</td><td>Una baldosa por jugador</td></tr>
+<tr><td>2 contra 2</td><td>8</td><td>Dos baldosas por equipo</td></tr>
+</table></div>
+<ul>
+<li>Los dos aparecen en un ring con la <b>vida y el maná al máximo</b> y quedan quietos durante una cuenta regresiva de 5 segundos.</li>
+<li>Se juega <b>un solo duelo</b>: gana el que no muere. Al terminar, los dos vuelven a Ullathorpe.</li>
+<li>En los dos formatos cada ganador suma <b>1 Punto de Reto</b> y un punto para el <a href="#ranking">ranking semanal</a>, siempre que el anti-farm cuente la victoria.</li>
+<li>No dan Elo ni se apuesta nada. Si la sala está ocupada, probás con otra.</li>
+<li>No podés entrar muerto. El staff puede cerrar las salas Fast.</li>
+</ul>
+
+<h3 id="ranking">Ranking semanal</h3>
+<p>Cada victoria en un reto Fast suma al ranking semanal de su formato (1 contra 1 o 2 contra 2). Cada 7 días, cerca de las 19:00, el ranking se reinicia y el primero de cada formato cobra canjes:</p>
+<div class="scroll"><table>
+<tr><th>Formato</th><th>Premio al 1.º</th></tr>
+<tr><td>1 contra 1</td><td>200 canjes</td></tr>
+<tr><td>2 contra 2</td><td>100 canjes</td></tr>
+</table></div>
+<p>El comando <code>/RANKING</code> muestra el ranking 1 contra 1. El anti-farm no cuenta una victoria (ni el Punto de Reto) si el rival tiene tu misma IP o si ya le ganaste 2 veces en la última hora.</p>
+</section>
+
+<section id="elo">
+<h2>Elo y rangos</h2>
+<p>El Elo mide tu nivel en duelos 1 contra 1. Cada rango cubre 100 puntos, salvo Bronce 4 que cubre los primeros 150. Tu rango aparece como aura y emblema sobre el personaje.</p>
+<div class="scroll"><table>
+<tr><th>Liga</th><th>Rangos (de menor a mayor)</th><th>Elo</th></tr>
+<tr><td>Bronce</td><td>4, 3, 2, 1</td><td>0 a 450</td></tr>
+<tr><td>Plata</td><td>4, 3, 2, 1</td><td>451 a 850</td></tr>
+<tr><td>Oro</td><td>4, 3, 2, 1</td><td>851 a 1250</td></tr>
+<tr><td>Platino</td><td>4, 3, 2, 1</td><td>1251 a 1650</td></tr>
+<tr><td>Maestro</td><td>4, 3, 2, 1</td><td>1651 en adelante</td></tr>
+<tr><td>Top 10</td><td>Los diez mejores Elo</td><td>Aura propia</td></tr>
+</table></div>
+<h3>Cómo se mueve el Elo</h3>
+<ul>
+<li>Ganar un duelo 1 contra 1: <b>+5</b>. Con una racha de 3 victorias seguidas: <b>+6</b>.</li>
+<li>Perder: <b>−5</b>. Con una racha de 3 derrotas seguidas: <b>−6</b>. Nunca bajás de 0.</li>
+<li>Ganar cualquier torneo suma <b>+10</b> de Elo a cada integrante del equipo campeón. En el torneo dinámico 1 contra 1 se suman además 2 por cada participante.</li>
+</ul>
+<div class="box warn"><b>Anti-farm:</b> el Elo queda congelado si los dos jugadores comparten IP o red, o si se enfrentan repetidamente al mismo rival en menos de 5 minutos sin que haya otro combate en el medio.</div>
+<p>El Elo se gana en el <b>reto por Elo</b> del formulario y ganando <b>torneos</b>. Los retos Fast, el Deathmatch y los demás eventos no lo dan.</p>
+<h3>Comandos</h3>
+<ul>
+<li><code>/RANGO</code>: tu Elo, tu rango, cuánto falta para el siguiente y tu racha.</li>
+<li><code>/RANKING</code>: el ranking semanal 1 contra 1.</li>
+</ul>
+</section>
+
+<section id="torneos">
+<h2>Torneos</h2>
+<p>Los abre un GM o se programan solos. Te anotás con <code>/PARTICIPAR</code> y vas a la sala de espera (mapa 53). Los que pierden vuelven a Ullathorpe. No se puede estar en dos torneos a la vez.</p>
+<h3>Torneo dinámico</h3>
+<p>Es el torneo principal. Las inscripciones se abren durante una ventana corta (1 minuto por defecto) y el servidor arma la llave solo. Entran de 3 o 4 jugadores hasta 64 participantes.</p>
+<ul>
+<li><b>Formatos:</b> 1 contra 1, 2 contra 2, 3 contra 3 y 4 contra 4 con party armada (el líder anota a todos y la party tiene que tener justo la cantidad del formato), y 2 contra 2 y 3 contra 3 <b>al azar</b>, donde el servidor sortea los equipos.</li>
+<li><b>Llave:</b> eliminación directa. Si sobran cupos hay pases libres en la primera ronda, así que nadie queda desparejo.</li>
+<li><b>Rings:</b> hasta 16 duelos a la vez (mapas 93 a 96, cuatro rings por mapa). Si una ronda tiene más duelos que rings, los que sobran esperan.</li>
+<li>Entre rondas hay 30 segundos de descanso. Semifinal y final pueden jugarse al mejor de 3 o de 5.</li>
+<li>Hay un <b>límite de pociones rojas por duelo</b> (300 por defecto).</li>
+<li>Un equipo pierde cuando no le queda nadie vivo y conectado. Si un integrante se desconecta, se descalifica a todo el equipo.</li>
+</ul>
+<div class="scroll"><table>
+<tr><th>Premio del campeón</th><th>Cuánto</th></tr>
+<tr><td>Puntos de Canje</td><td>10 por cada participante. Con 8 jugadores, 80</td></tr>
+<tr><td>Punto de torneo</td><td>1 fijo</td></tr>
+<tr><td>Elo</td><td>+10 por ganar el torneo. En 1 contra 1, además 2 por cada participante (con 8 jugadores, 16 más)</td></tr>
+</table></div>
+<h3>Torneos especiales</h3>
+<div class="scroll"><table>
+<tr><th>Torneo</th><th>Formato</th><th>Dónde se pelea</th></tr>
+<tr><td>SaturoS (automático)</td><td>1 contra 1 con límite de pociones rojas por duelo</td><td>Ring del mapa 79</td></tr>
+<tr><td>Plantes</td><td>1 contra 1</td><td>Ring del mapa 79</td></tr>
+<tr><td>Ping-Pong</td><td>3 contra 3</td><td>Ring del mapa 54</td></tr>
+</table></div>
+<p>En todos los torneos la sala de espera es el mapa 53. El staff anuncia por el chat general las reglas y el premio de cada uno al abrirlo.</p>
+<div class="box"><b>Rankings:</b> el servidor guarda un Top 10 de torneos ganados y un Top 10 de Elo.</div>
+</section>
+
+<section id="eventos">
+<h2>Eventos</h2>
+<p>Los abre el staff o se disparan automáticos. Se anuncian por el chat general.</p>
+<h3>Eventos automáticos</h3>
+<p>El servidor corre un ciclo de eventos solo, sin GM. <b>Cada 15 minutos</b> arranca el siguiente del ciclo y se avisa por el chat general <b>5 minutos y 1 minuto antes</b>. El ciclo tiene 14 eventos y da la vuelta completa en 3 horas y 30 minutos.</p>
+<div class="scroll"><table>
+<tr><th>Turno</th><th>Evento</th><th>Con canjes / sin canjes</th><th>Usuarios mínimos para abrirlo</th></tr>
+<tr><td>1 y 8</td><td>Torneo 1 contra 1 (dinámico)</td><td>1.º con canjes, 8.º sin canjes</td><td>4</td></tr>
+<tr><td>2 y 9</td><td>Ping-Pong 3 contra 3</td><td>2.º con canjes, 9.º sin canjes</td><td>6</td></tr>
+<tr><td>3 y 10</td><td>Captura de bandera</td><td>3.º con canjes, 10.º sin canjes</td><td>4 (2 por bando)</td></tr>
+<tr><td>4 y 11</td><td>Torneo 2 contra 2 al azar</td><td>4.º con canjes, 11.º sin canjes</td><td>6</td></tr>
+<tr><td>5 y 12</td><td>Evento Kills</td><td>5.º con canjes, 12.º sin canjes</td><td>4 (2 por bando)</td></tr>
+<tr><td>6 y 13</td><td>Torneo 3 contra 3 al azar</td><td>6.º con canjes, 13.º sin canjes</td><td>9</td></tr>
+<tr><td>7 y 14</td><td>Torneo 2 contra 2 con party</td><td>7.º con canjes, 14.º sin canjes</td><td>8</td></tr>
+</table></div>
+<ul>
+<li><b>Sin canjes:</b> en la segunda mitad del ciclo los items de canje quedan bloqueados en el mapa del evento, para que se juegue con lo básico.</li>
+<li><b>Sin gente suficiente:</b> si no hay los usuarios mínimos, el evento se pospone con un aviso y el ciclo sigue con el siguiente a los 15 minutos.</li>
+<li><b>Inscripción:</b> te anotás con <code>/PARTICIPAR</code>. Si no se anota nadie, el evento se cancela a los 3 minutos (con un aviso al minuto 2).</li>
+<li><b>Tope de combate:</b> si un evento pasa de 10 minutos de pelea, se cancela por seguridad.</li>
+<li>El ciclo empieza 15 minutos después de que el servidor arranca. El staff puede pausarlo y reanudarlo.</li>
+</ul>
+<h3>Cruzada</h3>
+<p>Ciudadanos contra Criminales. Se abren cupos por facción y te anotás con <code>/PARTICIPAR</code>. Hay que pertenecer a una facción y estar vivo. El bando ganador cobra <b>15 canjes y 1 quest</b> cada uno.</p>
+<h3>Captura de bandera</h3>
+<p>Ciudadanos contra Criminales, al mejor de tres rondas, sin límite de tiempo.</p>
+<ul>
+<li>Se gana una ronda llevando la bandera rival hasta la base propia, con la bandera propia todavía en su lugar. Si te robaron la tuya, primero hay que recuperarla.</li>
+<li>Solo se agarra la bandera del bando contrario, pisándola.</li>
+<li>Si cae el que la lleva, la bandera queda en el piso. Un compañero la levanta y sigue; uno del bando dueño la toca y vuelve sola a su base.</li>
+<li>Los lados se invierten cada ronda: ronda 1 los Ciudadanos arriba, ronda 2 abajo, ronda 3 arriba.</li>
+<li>Al morir vas a la sala de espera, revivís al instante y a los 5 segundos aparecés en tu base.</li>
+<li>El que lleva una bandera se ve con un aura: roja si es Ciudadano.</li>
+<li>Premio: <b>15 canjes y 1 quest</b> para todo el bando ganador.</li>
+</ul>
+<h3>Evento Kills</h3>
+<p>Ciudadanos contra Criminales, al mejor de 3 rondas, en el mismo mapa que la Captura de bandera. Gana la ronda el bando que llega primero a <b>50 asesinatos</b> del rival. Solo cuentan las muertes entre bandos opuestos (matar a un compañero no suma). Se muere, se revive en la sala de espera y a los 5 segundos volvés a tu base. Un contador en pantalla muestra el puntaje de cada bando. Premio: <b>15 canjes y 1 quest</b> para todo el bando ganador.</p>
+<h3>Deathmatch</h3>
+<p>Todos contra todos: los participantes aparecen en anillos alrededor del centro y gana el último en pie. El ganador cobra <b>15 canjes y 1 quest</b>. El GM puede pedir un mínimo de inscriptos (con cupo alcanzan dos) y bloquear los items de canje en el mapa.</p>
+<h3>Castillo de Clanes</h3>
+<ul>
+<li>Se habilita cuando hay <b>4 clanes fundados</b>. Mientras tanto no se puede entrar.</li>
+<li>Solo entran miembros de un clan. El clan que lo domina cobra <b>10 canjes cada 20 minutos</b> por cada miembro conectado.</li>
+<li><code>/CASTILLO</code> te dice qué clan lo domina y hace cuánto.</li>
+</ul>
+<h3>Isla de la Guerra</h3>
+<p>Una isla que domina una de las dos facciones. Quien mata al Rey de la Isla conquista el dominio para su facción, salvo que sea neutral o la facción ya la domine. Mientras la dominás, cada 20 minutos <b>todos los conectados de tu facción cobran 2 canjes</b>. El anuncio de conquista sale por el chat general.</p>
+<h3>FFA</h3>
+<p>El staff puede declarar un mapa FFA (todos contra todos, sin bandos). Se anuncia por el chat general cuando se activa.</p>
+</section>
+
+<section id="facciones">
+<h2>Facciones y jerarquías</h2>
+<p>Te enlistás hablando con el noble de tu facción: la Alianza Real o el bando de Lord Thek (Caos). Después subís de jerarquía hablando con el mismo NPC, cuando cumplís los tres requisitos: enemigos matados de la facción contraria, torneos ganados y quests completadas.</p>
+<div class="scroll"><table>
+<tr><th>Para llegar a</th><th>Enemigos matados</th><th>Torneos ganados</th><th>Quests</th></tr>
+<tr><td>Jerarquía 2</td><td>350</td><td>1</td><td>1</td></tr>
+<tr><td>Jerarquía 3</td><td>700</td><td>5</td><td>2</td></tr>
+<tr><td>Jerarquía 4</td><td>1050</td><td>10</td><td>5</td></tr>
+<tr><td>Jerarquía 5</td><td>1400</td><td>15</td><td>8</td></tr>
+<tr><td>Jerarquía 6</td><td>1750</td><td>20</td><td>12</td></tr>
+</table></div>
+<h3>Títulos</h3>
+<div class="scroll"><table>
+<tr><th>Jerarquía</th><th>Alianza Real</th><th>Lord Thek</th></tr>
+<tr><td>0 (sin enlistar)</td><td>Fiel al Rey</td><td>Fiel a Lord Thek</td></tr>
+<tr><td>1</td><td>Soldado Real</td><td>Acólito</td></tr>
+<tr><td>2</td><td>General Real</td><td>Jefe de Tropas</td></tr>
+<tr><td>3</td><td>Elite Real</td><td>Elite del Mal</td></tr>
+<tr><td>4</td><td>Héroe Real</td><td>Héroe del Mal</td></tr>
+<tr><td>5</td><td>Leyenda Real</td><td>Leyenda del Mal</td></tr>
+<tr><td>6</td><td>Paragón Real</td><td>Paragón del Mal</td></tr>
+</table></div>
+
+<h3>Recompensas</h3>
+<ul>
+<li>Las jerarquías 2, 3, 4 y 6 entregan una <b>armadura</b> de la facción (la 6 es la armadura de Paragón, en azul para la Alianza y roja para Lord Thek).</li>
+<li>La jerarquía 5 entrega una <b>meditación</b> exclusiva de la facción.</li>
+</ul>
+</section>
+
+<section id="clanes">
+<h2>Clanes</h2>
+<p>El líder funda el clan, nombra a un sublíder y administra las solicitudes. El sublíder puede aceptar miembros; rechazar y expulsar es solo del líder. El clan es de una facción.</p>
+<div class="scroll"><table>
+<tr><th>Nivel</th><th>Miembros</th><th>Costo de subir (canjes del líder)</th></tr>
+<tr><td>1</td><td>5</td><td>nivel inicial</td></tr>
+<tr><td>2</td><td>10</td><td>200</td></tr>
+<tr><td>3</td><td>15</td><td>300</td></tr>
+<tr><td>4</td><td>20</td><td>400</td></tr>
+<tr><td>5</td><td>25</td><td>500</td></tr>
+</table></div>
+<ul>
+<li>Fundar un clan pide nivel 45 y gemas de clan o puntos de torneo, salvo que uses la <b>Gema Fundadora</b> (80.000 TP en la Tienda).</li>
+<li>Desde el nivel 5 ves las barras de vida y maná de tus compañeros de clan.</li>
+<li>El Castillo de Clanes es el premio gordo: ver <a href="#eventos">Eventos</a>.</li>
+</ul>
+</section>
+
+<section id="tp">
+<h2>Trhynum Points y tienda</h2>
+<div class="box"><b>Solo dentro del juego:</b> los TP se compran con el NPC de Donación. La página web ya no los vende.</div>
+<p>Los TP se consiguen donando (ver más abajo) y se gastan en dos lugares: la <b>Tienda del NPC de Donación</b> y el <b>Sastre de Skins</b>.</p>
+<div class="box"><b>Fecha:</b> hasta el <b>20/11/2026</b> la Tienda solo vende skins. Desde esa fecha se habilitan también los items.</div>
+<h3>Skins</h3>
+<p>El Sastre de Skins (Ullathorpe, a la izquierda de Tyrion) vende variantes de color. Es un desbloqueo permanente del personaje y hay tres líneas: <b>Sombría</b>, <b>Dorada</b> y <b>Glacial</b>.</p>
+<div class="scroll"><table>
+<tr><th>Qué</th><th>Precio por variante</th></tr>
+<tr><td>Item de combate (arma, armadura, escudo, casco)</td><td>1.000 TP</td></tr>
+<tr><td>Hechizo (Apocalipsis, Descarga, Inmovilizar)</td><td>2.500 TP</td></tr>
+<tr><td>Meditación de nivel 45</td><td>5.000 TP</td></tr>
+</table></div>
+<h3>Catálogo de la Tienda</h3>
+<div class="scroll"><table>
+<tr><th>Artículo</th><th>TP</th><th>Quién lo usa</th></tr>
+<tr><td>Orejas de Mickey</td><td>3.000</td><td>Todas</td></tr>
+<tr><td>Sombrero Festivo</td><td>3.500</td><td>Todas</td></tr>
+<tr><td>Capucha</td><td>5.000</td><td>Todas</td></tr>
+<tr><td>Túnica Siniestra Roja / Azul</td><td>8.000</td><td>Clases mágicas</td></tr>
+<tr><td>Túnica Metamorfa</td><td>10.000</td><td>Todas</td></tr>
+<tr><td>Armadura Lunar</td><td>10.000</td><td>Clases físicas</td></tr>
+<tr><td>Túnica Trhynum</td><td>12.000</td><td>Todas</td></tr>
+<tr><td>Túnica Gloriosa</td><td>15.000</td><td>Todas</td></tr>
+<tr><td>Túnica Mágica</td><td>15.000</td><td>Clases mágicas</td></tr>
+<tr><td>Kit por clase (línea Ancestral)</td><td>40.000</td><td>Arcano (Mago y Nigromante), Guerrero, Paladín, Clérigo, Asesino, Bardo, Arquero, Cazador</td></tr>
+<tr><td>Gema Fundadora</td><td>80.000</td><td>Funda un clan siendo nivel 45</td></tr>
+</table></div>
+<p>Los kits Ancestral no se mejoran ni se caen al morir.</p>
+<h3>Cofres sorpresa</h3>
+<p>Se compran en la Tienda y se abren con doble clic en el inventario. El premio es un item al azar que tu clase y raza pueden usar. La rareza depende del cofre:</p>
+<div class="scroll"><table>
+<tr><th>Cofre</th><th>TP</th><th>Común</th><th>Raro</th><th>Épico</th><th>Legendario</th></tr>
+<tr><td>Madera</td><td>3.000</td><td>75%</td><td>20%</td><td>5%</td><td>0%</td></tr>
+<tr><td>Plata</td><td>8.000</td><td>45%</td><td>38%</td><td>15%</td><td>2%</td></tr>
+<tr><td>Oro</td><td>14.000</td><td>12%</td><td>40%</td><td>38%</td><td>10%</td></tr>
+<tr><td>Arcano</td><td>28.000</td><td>0%</td><td>15%</td><td>70%</td><td>15%</td></tr>
+</table></div>
+<p>Los cofres no dan las armaduras más fuertes (55 a 60 de defensa): esas quedan solo para el canje.</p>
+<h3>Donar con Mercado Pago</h3>
+<ol>
+<li>Hablá con el NPC de Donación y tocá <b>DONAR</b>.</li>
+<li>Elegí un monto (de $500 a $200.000) o escribí otro.</li>
+<li>Pagá con el QR que aparece en la misma ventana.</li>
+<li>Al aprobarse el pago, los TP se acreditan solos. Si estás desconectado, quedan en tu cuenta.</li>
+</ol>
+<p>1 peso equivale a 1 TP. Hay bonus extra según el monto:</p>
+<div class="scroll"><table>
+<tr><th>Donación desde</th><th>Bonus</th></tr>
+<tr><td>$5.000</td><td>+10%</td></tr>
+<tr><td>$10.000</td><td>+20%</td></tr>
+<tr><td>$20.000</td><td>+30%</td></tr>
+</table></div>
+</section>
+
+<section id="mejoras">
+<h2>Mejora de armas</h2>
+<p>Las armas se mejoran a +1 y +2 con el <b>Forjador Arcano</b> de Ullathorpe. Los materiales salen de tres dungeons, cada uno con su elemento y su jefe.</p>
+<div class="scroll"><table>
+<tr><th>Elemento</th><th>Dungeon</th><th>Mapas</th><th>Jefe</th></tr>
+<tr><td>Fuego</td><td>Solar</td><td>20 y 21</td><td>Señor del Abismo (mapa 21)</td></tr>
+<tr><td>Tierra</td><td>Trhynum</td><td>15 a 18</td><td>Jefe del dungeon (mapa 16)</td></tr>
+<tr><td>Agua</td><td>Veril</td><td>22 a 25</td><td>Jefe del dungeon (mapa 23)</td></tr>
+</table></div>
+<ul>
+<li>Los bichos comunes dejan <b>fragmentos</b> (25% de probabilidad base, menos si tienen poca vida). Los jefes dejan <b>gemas</b> (35%).</li>
+<li><b>10 fragmentos</b> forman una gema.</li>
+<li>Los jefes reaparecen a los 15 minutos de que los matan.</li>
+<li>Las armas mejoradas tienen aura propia, que se prende desde Opciones.</li>
+</ul>
+</section>
+
+<section id="comercio">
+<h2>Comercio entre jugadores</h2>
+<p>Escribí <code>/COMERCIAR</code> mirando a otro jugador. Cuando los dos lo piden, se abre la ventana de comercio.</p>
+<ol>
+<li>Elegí un item de tu inventario (o la pestaña <b>Canjes</b>), la cantidad, y tocá <b>Ofrecer</b>.</li>
+<li>Podés cambiar tu oferta mientras no la hayas bloqueado. Si el otro cambia la suya, se anula tu bloqueo.</li>
+<li>Con una oferta puesta, tocá <b>Bloquear oferta</b>.</li>
+<li>Cuando los dos bloquearon, cada uno toca <b>Aceptar</b>. El intercambio se hace cuando aceptan los dos.</li>
+<li><b>Cancelar</b> o <kbd>Esc</kbd> cierran el comercio sin cambios.</li>
+</ol>
+<p>No se pueden ofrecer los items de principiante, los de facción ni los que no se caen.</p>
+</section>
+
+<section id="clases">
+<h2>Clases y razas</h2>
+<p>Elegís raza y clase al crear el personaje. Las clases salen de un árbol: primero un camino, después la especialidad.</p>
+<div class="scroll"><table>
+<tr><th>Camino</th><th>Clases</th><th>Resumen</th></tr>
+<tr><td>Hechicero (con maná)</td><td>Mago, Nigromante</td><td>Poca vida y mucho maná. El mago usa la Furia del Fénix, su mejor hechizo. El nigromante tiene el mejor hechizo de invocación. Los dos llegan a unos 2000 de maná.</td></tr>
+<tr><td>Orden Sagrada (con maná)</td><td>Paladín, Clérigo</td><td>El paladín mezcla hechizos baratos con armas y armaduras. El clérigo tiene más maná y pega menos con armas.</td></tr>
+<tr><td>Naturalista (con maná)</td><td>Bardo, Druida</td><td>El bardo evade mucho y pega poco. El druida tiene maná medio y golpe medio con arco.</td></tr>
+<tr><td>Sigiloso (con maná)</td><td>Asesino, Cazador</td><td>El asesino apuñala, con vida media y poco maná (rinde más siendo elfo oscuro). El cazador usa hechizos baratos y se especializa en el arco.</td></tr>
+<tr><td>Caballero (sin maná)</td><td>Guerrero, Arquero</td><td>El guerrero tiene mucha vida y fuerza, con golpes y apuñaladas fuertes. El arquero domina el arco y tiene mucha vida.</td></tr>
+</table></div>
+<h3>Modificadores de combate</h3>
+<p>Valores del servidor para cada clase (referencia: 100). Cuanto más alto, mejor en ese aspecto.</p>
+<div class="scroll"><table>
+<tr><th>Clase</th><th>Evasión</th><th>Ataque cuerpo a cuerpo</th><th>Ataque con arco</th><th>Evasión con escudo</th><th>Daño cuerpo a cuerpo</th><th>Daño con arco</th></tr>
+<tr><td>Guerrero</td><td>85</td><td>115</td><td>90</td><td>75</td><td>95</td><td>85</td></tr>
+<tr><td>Arquero</td><td>105</td><td>75</td><td>110</td><td>70</td><td>80</td><td>100</td></tr>
+<tr><td>Paladín</td><td>85</td><td>105</td><td>70</td><td>75</td><td>95</td><td>80</td></tr>
+<tr><td>Asesino</td><td>95</td><td>100</td><td>75</td><td>70</td><td>80</td><td>75</td></tr>
+<tr><td>Cazador</td><td>90</td><td>75</td><td>105</td><td>80</td><td>80</td><td>95</td></tr>
+<tr><td>Bardo</td><td>85</td><td>95</td><td>75</td><td>80</td><td>80</td><td>80</td></tr>
+<tr><td>Clérigo</td><td>75</td><td>90</td><td>70</td><td>75</td><td>85</td><td>80</td></tr>
+<tr><td>Druida</td><td>75</td><td>65</td><td>50</td><td>45</td><td>75</td><td>50</td></tr>
+<tr><td>Nigromante</td><td>75</td><td>65</td><td>60</td><td>0</td><td>60</td><td>60</td></tr>
+<tr><td>Mago</td><td>70</td><td>50</td><td>50</td><td>0</td><td>50</td><td>50</td></tr>
+</table></div>
+<h3>Razas</h3>
+<div class="scroll"><table>
+<tr><th>Raza</th><th>Fuerza</th><th>Agilidad</th><th>Constitución</th><th>Inteligencia</th><th>Carisma</th></tr>
+<tr><td>Humano</td><td>+1</td><td>+1</td><td>+2</td><td>0</td><td>0</td></tr>
+<tr><td>Elfo</td><td>0</td><td>+3</td><td>+1</td><td>+1</td><td>+2</td></tr>
+<tr><td>Elfo oscuro</td><td>+1</td><td>+1</td><td>0</td><td>+2</td><td>−3</td></tr>
+<tr><td>Enano</td><td>+3</td><td>−1</td><td>+3</td><td>−6</td><td>−3</td></tr>
+<tr><td>Gnomo</td><td>−5</td><td>+4</td><td>0</td><td>+3</td><td>+1</td></tr>
+</table></div>
+<p>Los kits Ancestral de la Tienda y las armaduras de facción se entregan por clase y por raza (humano y elfo, o enano y gnomo).</p>
+</section>
+
+<section id="hechizos">
+<h2>Hechizos por clase</h2>
+<p>Los hechizos se aprenden con un <b>pergamino</b>: hacés doble clic y el hechizo pasa a tu libro. Solo lanzan las clases con maná: Mago, Nigromante, Paladín, Clérigo, Bardo, Druida, Asesino y Cazador. Guerrero y Arquero no usan magia.</p>
+<h3>Qué hace falta para lanzar</h3>
+<ul>
+<li>El <b>nivel</b> mínimo del hechizo, si lo tiene (algunos piden 25, 30 o 34).</li>
+<li>El <b>skill de Magia</b> que indica la tabla.</li>
+<li>El <b>maná</b> necesario. Tu clase y tu equipo pueden cambiar el costo.</li>
+<li>Mago y Nigromante, además, necesitan un <b>báculo</b> de rango igual o mayor al que pide el hechizo (columna Báculo). Con uno de menor rango el hechizo no sale.</li>
+</ul>
+<h3>Hechizos</h3>
+<div class="scroll"><table>
+<tr><th>Hechizo</th><th>Nivel</th><th>Skill de Magia</th><th>Maná</th><th>Báculo</th><th>Efecto</th><th>Quién lo aprende</th></tr>
+<tr><td>Curar veneno</td><td>-</td><td>10</td><td>12</td><td>-</td><td>Cura el envenenamiento</td><td>Todas las de maná</td></tr>
+<tr><td>Curar heridas leves</td><td>-</td><td>15</td><td>10</td><td>-</td><td>Cura de 1 a 15 de vida</td><td>Todas las de maná</td></tr>
+<tr><td>Curar heridas graves</td><td>-</td><td>38</td><td>40</td><td>-</td><td>Cura de 15 a 40 de vida</td><td>Todas las de maná</td></tr>
+<tr><td>Flecha magica</td><td>-</td><td>12</td><td>20</td><td>-</td><td>Daño de 6 a 12</td><td>Todas las de maná</td></tr>
+<tr><td>Flecha eléctrica</td><td>-</td><td>22</td><td>35</td><td>-</td><td>Daño de 12 a 20</td><td>Todas las de maná</td></tr>
+<tr><td>Misil magico</td><td>-</td><td>35</td><td>45</td><td>-</td><td>Daño de 25 a 35</td><td>Todas las de maná</td></tr>
+<tr><td>Tormenta de fuego</td><td>-</td><td>60</td><td>210</td><td>1</td><td>Daño de 40 a 60</td><td>Todas las de maná</td></tr>
+<tr><td>Descarga eléctrica</td><td>-</td><td>85</td><td>460</td><td>2</td><td>Daño de 55 a 85</td><td>Todas las de maná</td></tr>
+<tr><td>Apocalipsis</td><td>-</td><td>100</td><td>1000</td><td>2</td><td>Daño de 85 a 100</td><td>Todas las de maná</td></tr>
+<tr><td>Remover paralisis</td><td>-</td><td>40</td><td>300</td><td>-</td><td>Quita la parálisis</td><td>Todas las de maná</td></tr>
+<tr><td>Inmovilizar</td><td>-</td><td>60</td><td>300</td><td>1</td><td>Paraliza a una criatura</td><td>Todas las de maná</td></tr>
+<tr><td>Paralizar</td><td>-</td><td>60</td><td>350</td><td>1</td><td>Paraliza al objetivo</td><td>Todas las de maná</td></tr>
+<tr><td>Remover estupidez</td><td>-</td><td>45</td><td>300</td><td>-</td><td>Devuelve el control a quien tiene estupidez</td><td>Todas las de maná</td></tr>
+<tr><td>Estupidez</td><td>-</td><td>30</td><td>500</td><td>3</td><td>El objetivo pierde el control de su personaje</td><td>Todas las de maná</td></tr>
+<tr><td>Ceguera</td><td>-</td><td>50</td><td>520</td><td>-</td><td>Ciega al objetivo</td><td>Todas las de maná</td></tr>
+<tr><td>Invisibilidad</td><td>-</td><td>87</td><td>500</td><td>2</td><td>Invisibilidad por unos segundos (a vos o a otro)</td><td>Todas las de maná</td></tr>
+<tr><td>Celeridad</td><td>-</td><td>20</td><td>40</td><td>-</td><td>Sube la agilidad del objetivo</td><td>Todas las de maná</td></tr>
+<tr><td>Torpeza</td><td>-</td><td>20</td><td>20</td><td>-</td><td>Baja la agilidad del objetivo</td><td>Todas las de maná</td></tr>
+<tr><td>Fuerza</td><td>-</td><td>35</td><td>50</td><td>-</td><td>Sube la fuerza del objetivo</td><td>Todas las de maná</td></tr>
+<tr><td>Debilidad</td><td>-</td><td>35</td><td>45</td><td>-</td><td>Baja la fuerza del objetivo</td><td>Todas las de maná</td></tr>
+<tr><td>Provocar hambre</td><td>-</td><td>3</td><td>20</td><td>-</td><td>Quita de 20 a 50 de hambre</td><td>Todas las de maná</td></tr>
+<tr><td>Terrible hambre de Igôr</td><td>-</td><td>35</td><td>350</td><td>-</td><td>Quita todo el hambre</td><td>Todas las de maná</td></tr>
+<tr><td>Llamado a la naturaleza</td><td>-</td><td>25</td><td>50</td><td>-</td><td>Invoca 3 lobos</td><td>Todas las de maná</td></tr>
+<tr><td>Invocar Zombies</td><td>-</td><td>35</td><td>110</td><td>-</td><td>Invoca 3 zombies</td><td>Todas las de maná</td></tr>
+<tr><td>Invocar elemental de agua</td><td>-</td><td>87</td><td>950</td><td>2</td><td>Invoca un elemental de agua (solo pega a criaturas)</td><td>Todas las de maná</td></tr>
+<tr><td>Melodía venenosa</td><td>34</td><td>100</td><td>650</td><td>-</td><td>Envenena: mata si no se cura</td><td>Solo Bardo</td></tr>
+<tr><td>Resucitar</td><td>30</td><td>75</td><td>900</td><td>-</td><td>Resucita a un jugador muerto</td><td>Solo Clérigo</td></tr>
+<tr><td>Invocar elemental de fuego</td><td>25</td><td>100</td><td>900</td><td>2</td><td>Invoca un elemental de fuego que lanza tormentas de fuego</td><td>Solo Druida</td></tr>
+<tr><td>Invocar elemental de tierra</td><td>34</td><td>90</td><td>950</td><td>3</td><td>Invoca un elemental de tierra que paraliza al rival</td><td>Solo Druida</td></tr>
+<tr><td>Fuegos fatuos</td><td>34</td><td>100</td><td>1100</td><td>3</td><td>Invoca fuegos fatuos en tu ayuda</td><td>Solo Nigromante</td></tr>
+<tr><td>Aura Divina</td><td>34</td><td>80</td><td>275</td><td>-</td><td>Sube fuerza y agilidad del objetivo</td><td>Solo Paladín y Asesino</td></tr>
+<tr><td>Sombra de poder</td><td>34</td><td>80</td><td>275</td><td>-</td><td>Sube fuerza y agilidad del objetivo</td><td>Solo Asesino</td></tr>
+<tr><td>Llamado a las sombras</td><td>34</td><td>100</td><td>1200</td><td>2</td><td>Hace visibles a los invisibles cercanos</td><td>Solo Mago</td></tr>
+<tr><td>Arco encantado</td><td>34</td><td>80</td><td>400</td><td>-</td><td>Aumenta el golpe con arco</td><td>Solo Cazador</td></tr>
+</table></div>
+<p>Los pergaminos "Solo" de una clase no los puede aprender ninguna otra. El resto lo aprende cualquier clase con maná.</p>
+<div class="box"><b>Skins de hechizo:</b> Apocalipsis, Descarga eléctrica e Inmovilizar tienen variantes de color en el Sastre de Skins (ver <a href="#tp">Trhynum Points y tienda</a>).</div>
+</section>
+
+<section id="misiones">
+<h2>Misiones</h2>
+<p>El <b>Misionero Tyrion</b>, en Ullathorpe, te da una misión de jugadores y una de bichos al mismo tiempo. Cuando completás el objetivo volvés con él y reclamás los canjes. Podés cancelar y elegir otra.</p>
+<h3>Contra jugadores</h3>
+<div class="scroll"><table>
+<tr><th>Misión</th><th>Objetivo</th><th>Canjes</th></tr>
+<tr><td>Asesina criminales</td><td>10 criminales</td><td>10</td></tr>
+<tr><td>Asesina ciudadanos</td><td>15 ciudadanos</td><td>10</td></tr>
+<tr><td>Asesina usuarios (30)</td><td>30 jugadores</td><td>25</td></tr>
+<tr><td>Asesina usuarios (50)</td><td>50 jugadores</td><td>50</td></tr>
+<tr><td>Asesina usuarios (100)</td><td>100 jugadores</td><td>125</td></tr>
+</table></div>
+<h3>Contra bichos</h3>
+<div class="scroll"><table>
+<tr><th>Misión</th><th>Objetivo</th><th>Canjes</th></tr>
+<tr><td>Demonios Abismales</td><td>10</td><td>20</td></tr>
+<tr><td>Acólitos</td><td>5</td><td>45</td></tr>
+<tr><td>Medusas</td><td>10</td><td>20</td></tr>
+<tr><td>Esfinges</td><td>5</td><td>45</td></tr>
+<tr><td>Apariciones</td><td>10</td><td>20</td></tr>
+<tr><td>Engendros del Demonio</td><td>5</td><td>45</td></tr>
+<tr><td>Engendro Abismal</td><td>1</td><td>60</td></tr>
+</table></div>
+</section>
+
+<section id="canjes">
+<h2>Ventana de Canjes</h2>
+<p>Ahí se cambian puntos por items. Hay dos catálogos: uno que se paga con <b>Puntos de Canje</b> y otro con <b>Puntos de Reto</b>.</p>
+<h3>Con Puntos de Canje</h3>
+<div class="scroll"><table>
+<tr><th>Item</th><th>Canjes</th></tr>
+<tr><td>Ropa de Rey</td><td>175</td></tr>
+<tr><td>Ropa de Rey (Enano/Gnomo)</td><td>175</td></tr>
+<tr><td>Ropa de la Alianza</td><td>192</td></tr>
+<tr><td>Ropa de las Sombras</td><td>192</td></tr>
+<tr><td>Chupin gris +1</td><td>262</td></tr>
+<tr><td>Pantalon Celeste</td><td>262</td></tr>
+<tr><td>Pantalon Rojo</td><td>262</td></tr>
+<tr><td>Corona Trhynum</td><td>630</td></tr>
+<tr><td>Arco de la Luz</td><td>770</td></tr>
+<tr><td>Armadura Daedrica</td><td>770</td></tr>
+<tr><td>Armadura Escarlata +1</td><td>770</td></tr>
+<tr><td>Armadura Mortal</td><td>770</td></tr>
+<tr><td>Armadura Titanica</td><td>770</td></tr>
+<tr><td>Armadura Titanium</td><td>770</td></tr>
+<tr><td>Armadura de la cienaga +1</td><td>770</td></tr>
+<tr><td>Báculo de Fuego</td><td>770</td></tr>
+<tr><td>Corona Sacra</td><td>770</td></tr>
+<tr><td>Corona de Guerra</td><td>770</td></tr>
+<tr><td>Daga Envenenada</td><td>770</td></tr>
+<tr><td>Daga de Hielo</td><td>770</td></tr>
+<tr><td>Escudo Dinal +1</td><td>770</td></tr>
+<tr><td>Escudo Estrella</td><td>770</td></tr>
+<tr><td>Escudo Imperial +2</td><td>770</td></tr>
+<tr><td>Escudo Medusa</td><td>770</td></tr>
+<tr><td>Escudo dorado</td><td>770</td></tr>
+<tr><td>Espada Argentum</td><td>770</td></tr>
+<tr><td>Espada Sagrada</td><td>770</td></tr>
+<tr><td>Espada del Berserker</td><td>770</td></tr>
+<tr><td>Rodela +1</td><td>770</td></tr>
+<tr><td>Sombrero de las Sombras</td><td>770</td></tr>
+<tr><td>Tunica Scoom</td><td>770</td></tr>
+<tr><td>Túnica Drummond Oscura</td><td>770</td></tr>
+<tr><td>Túnica Siniestra Negra</td><td>770</td></tr>
+<tr><td>Corona de Rey</td><td>910</td></tr>
+<tr><td>Arco de las Sombras</td><td>1.050</td></tr>
+<tr><td>Armadura de la cienaga +1 (e/g)</td><td>1.050</td></tr>
+</table></div>
+<p>Cada item lo usan las clases y razas que indica la ventana de Canjes al elegirlo. Las armaduras más fuertes (55 a 60 de defensa) solo se consiguen acá y no salen de los cofres.</p>
+<h3>Con Puntos de Reto</h3>
+<div class="scroll"><table>
+<tr><th>Item</th><th>Puntos de Reto</th></tr>
+<tr><td>Túnica Zagreb Alianza</td><td>200</td></tr>
+<tr><td>Túnica Zagreb Caótico</td><td>200</td></tr>
+<tr><td>Armadura tenebrosa</td><td>375</td></tr>
+<tr><td>Tunica del Peregrino</td><td>375</td></tr>
+<tr><td>Tunica del Peregrino (Enano/Gnomo)</td><td>375</td></tr>
+<tr><td>Tunica de la Sombra</td><td>450</td></tr>
+<tr><td>Tunica Milgror Amarilla</td><td>500</td></tr>
+<tr><td>Tunica Milgror Blanca</td><td>500</td></tr>
+<tr><td>Túnica Celestial</td><td>500</td></tr>
+<tr><td>Túnica Maestra</td><td>500</td></tr>
+<tr><td>Tunica Albina</td><td>560</td></tr>
+<tr><td>Tunica Albina (Enano/Gnomo)</td><td>560</td></tr>
+<tr><td>Tunica Hexagrama</td><td>750</td></tr>
+<tr><td>Tunica Hexagrama (Enano/Gnomo)</td><td>750</td></tr>
+<tr><td>Túnica Alada Roja</td><td>750</td></tr>
+<tr><td>Tunica del Regente</td><td>840</td></tr>
+<tr><td>Tunica del Regente (Enano/Gnomo)</td><td>840</td></tr>
+<tr><td>Tunica Dorada Real</td><td>940</td></tr>
+<tr><td>Tunica Dorada Real (Enano/Gnomo)</td><td>940</td></tr>
+<tr><td>Túnica Angelical</td><td>1.250</td></tr>
+<tr><td>Túnica Angelical (E/G)</td><td>1.250</td></tr>
+</table></div>
+</section>
+
+<section id="party">
+<h2>Party</h2>
+<ul>
+<li>El líder invita con el botón del party o desde el menú. El invitado tiene <b>15 segundos</b> para aceptar con <code>/ACEPTAR</code> o rechazar con <code>/RECHAZAR</code>.</li>
+<li>Entran hasta <b>4</b> jugadores de la misma facción.</li>
+<li>La diferencia de nivel entre miembros no puede pasar de 5.</li>
+<li>Los newbies no pueden formar ni unirse a un party.</li>
+<li>Para armar un party necesitás liderazgo suficiente según tu carisma.</li>
+<li>Los torneos por equipos piden una party con la cantidad exacta del formato.</li>
+</ul>
+</section>
+
+<section id="comandos">
+<h2>Comandos de jugador</h2>
+<div class="scroll"><table>
+<tr><th>Comando</th><th>Para qué sirve</th></tr>
+<tr><td><code>/RETAR</code></td><td>Abre el formulario de retos. Ver <a href="#retos">Retos</a></td></tr>
+<tr><td><code>/BLOQRETOS</code></td><td>Bloquea o desbloquea los desafíos por items y por canje</td></tr>
+<tr><td><code>/ACEPTARAPUESTA</code>, <code>/RECHAZARAPUESTA</code></td><td>Responden un desafío pendiente (también se puede desde la ventana)</td></tr>
+<tr><td><code>/RANGO</code>, <code>/RANKING</code></td><td>Tu rango de Elo y el ranking semanal</td></tr>
+<tr><td><code>/PARTICIPAR</code></td><td>Anotarte en un torneo o una Cruzada abierta</td></tr>
+<tr><td><code>/ACEPTAR</code>, <code>/RECHAZAR</code></td><td>Responder una invitación de party</td></tr>
+<tr><td><code>/CASTILLO</code></td><td>Estado del Castillo de Clanes</td></tr>
+<tr><td><code>/COMERCIAR</code></td><td>Comerciar con otro jugador</td></tr>
+<tr><td><code>/TRANSFERIR NICK@CANTIDAD</code></td><td>Pasarle canjes a otro jugador</td></tr>
+<tr><td><code>/SOPORTE</code></td><td>Mandar un mensaje al staff. Queda guardado y te lo responde un GM</td></tr>
+</table></div>
+</section>
