@@ -19,20 +19,38 @@ const texto = Alegreya_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://trhynumao.com.ar"),
+  metadataBase: new URL("https://www.trhynumao.com.ar"),
+  applicationName: "TrhynumAO",
+  manifest: "/manifest.webmanifest",
+  alternates: { canonical: "/" },
   title: {
     default: "TrhynumAO: Argentum Online de agite",
     template: "%s | TrhynumAO",
   },
   description:
     "Servidor argentino de Argentum Online centrado en el combate entre jugadores: retos, torneos con llave automática, ranking por Elo y un evento nuevo cada 15 minutos.",
-  icons: { icon: [{ url: "/marca/icono.svg", type: "image/svg+xml" }] },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/marca/icono.svg", type: "image/svg+xml" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: { url: "/apple-icon.png", sizes: "180x180" },
+  },
   openGraph: {
     title: "TrhynumAO",
+    siteName: "TrhynumAO",
+    url: "/",
     description: "Argentum Online de agite: retos, torneos, Elo y un evento cada 15 minutos.",
-    images: ["/assets/capturas/portada.webp"],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "TrhynumAO, Argentum Online de agite" }],
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TrhynumAO",
+    description: "Argentum Online de agite: retos, torneos, Elo y un evento cada 15 minutos.",
+    images: ["/og.png"],
   },
 }
 
