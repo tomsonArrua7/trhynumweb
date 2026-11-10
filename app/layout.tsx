@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TrhynumAO",
     description: "Argentum Online de agite: retos, torneos, Elo y un evento cada 15 minutos.",
-    images: ["/assets/Screenshot_01062026_220128.webp"],
+    images: ["/assets/capturas/portada.webp"],
     locale: "es_AR",
     type: "website",
   },

@@ -26,21 +26,20 @@ export const requisitos: [string, string][] = [
 
 export type Captura = { src: string; alt: string }
 
+// Las capturas viven en public/assets/capturas (1024x768, en .webp).
 export const capturaPortada: Captura = {
-  src: "/assets/Screenshot_01062026_220128.webp",
-  alt: "Ullathorpe llena de jugadores antes de un evento",
+  src: "/assets/capturas/portada.webp",
+  alt: "La plaza de Ullathorpe con el Sastre de Skins, Tyrion y el Forjador Arcano",
 }
 
 export const capturas: Captura[] = [
-  { src: "/assets/Screenshot_01062026_220203.webp", alt: "Jugadores reunidos en Ullathorpe" },
-  { src: "/assets/Screenshot_01062026_220217.webp", alt: "Captura del juego" },
-  { src: "/assets/Screenshot_01062026_233306.webp", alt: "Captura del juego" },
-  { src: "/assets/Screenshot_01062026_212710.webp", alt: "Captura del juego" },
-  { src: "/assets/Screenshot_01062026_214553.webp", alt: "Captura del juego" },
-  { src: "/assets/Screenshot_01062026_215924.webp", alt: "Captura del juego" },
-  { src: "/assets/image1.webp", alt: "Captura del juego" },
-  { src: "/assets/image3.webp", alt: "Captura del juego" },
-  { src: "/assets/foto4.webp", alt: "Captura del juego" },
+  { src: "/assets/capturas/ullathorpe-plaza.webp", alt: "Portales a la Zona de Agite y a los teleports en Ullathorpe" },
+  { src: "/assets/capturas/tienda-de-magia.webp", alt: "La tienda de hechizos e items de Ullathorpe" },
+  { src: "/assets/capturas/rango.webp", alt: "Ventana de rango: liga Oro 3 y el resto de las ligas" },
+  { src: "/assets/capturas/tiempos.webp", alt: "Ventana de tiempos: próximos eventos y jefes de dungeon" },
+  { src: "/assets/capturas/skins.webp", alt: "Sastre de Skins: variantes Sombría, Dorada y Glacial de un arco" },
+  { src: "/assets/capturas/forjador.webp", alt: "Forjador Arcano: fragmentos, gemas y mejora de armas" },
+  { src: "/assets/capturas/tienda.webp", alt: "Tienda de Trhynum Points con kits y cofres" },
 ]
 
 export const staff: { nick: string; nombre: string; rol: string }[] = [

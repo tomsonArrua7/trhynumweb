@@ -20,7 +20,7 @@ export function Galeria({ capturas }: { capturas: Captura[] }) {
           <li key={c.src}>
             <button type="button" onClick={() => abrir(n)} aria-label={`Ampliar: ${c.alt}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={c.src} alt={c.alt} loading="lazy" width={800} height={600} />
+              <img src={c.src} alt={c.alt} loading="lazy" width={1024} height={768} />
             </button>
           </li>
         ))}

@@ -34,8 +34,8 @@ export default function Inicio() {
 
             <figure className="ventana">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={capturaPortada.src} alt={capturaPortada.alt} width={800} height={600} fetchPriority="high" />
-              <figcaption>Ullathorpe, la ciudad principal, unos minutos antes de un evento.</figcaption>
+              <img src={capturaPortada.src} alt={capturaPortada.alt} width={1024} height={768} fetchPriority="high" />
+              <figcaption>Ullathorpe, la ciudad principal: skins, misiones y forja a pasos de la fuente.</figcaption>
             </figure>
           </div>
         </section>
