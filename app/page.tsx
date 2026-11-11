@@ -215,17 +215,25 @@ export default function Inicio() {
           </div>
         </section>
 
-        <section className="seccion" id="staff">
+        <section className="seccion seccion-staff" id="staff">
           <div className="contenedor">
             <h2>Quiénes lo hacemos</h2>
             <ul className="staff">
-              {staff.map((s) => (
-                <li key={s.nick}>
-                  <strong>
-                    {s.nick}
-                    <small>{s.nombre}</small>
-                  </strong>
-                  <span>{s.rol}</span>
+              {staff.map((s, i) => (
+                <li key={s.nick} className={i === 0 ? "staff-director" : undefined}>
+                  <svg className="staff-escudo" viewBox="0 0 64 74" aria-hidden="true">
+                    <path d="M32 2 L60 10 V36 C60 54 47 66 32 72 C17 66 4 54 4 36 V10 Z" />
+                    <path className="staff-escudo-borde" d="M32 8 L54 14.5 V36 C54 50.5 44 60.5 32 65.5 C20 60.5 10 50.5 10 36 V14.5 Z" />
+                    <text x="32" y="47" textAnchor="middle">
+                      {s.nick[0].toUpperCase()}
+                    </text>
+                  </svg>
+                  <div>
+                    <p className="staff-cargo">{s.cargo}</p>
+                    <strong>{s.nick}</strong>
+                    <span className="staff-nombre">{s.nombre}</span>
+                    <p className="staff-tarea">{s.tarea}</p>
+                  </div>
                 </li>
               ))}
             </ul>

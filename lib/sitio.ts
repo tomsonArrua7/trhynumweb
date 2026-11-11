@@ -44,12 +44,11 @@ export const capturas: Captura[] = [
   { src: "/assets/capturas/opciones.webp", alt: "Opciones del juego: cada ayuda visual se prende o se apaga" },
 ]
 
-export const staff: { nick: string; nombre: string; rol: string }[] = [
-  { nick: "Benedict", nombre: "Tomás", rol: "Fundador y desarrollador principal" },
-  { nick: "rAzer", nombre: "Tom", rol: "Director y programador de Discord" },
-  { nick: "Ameelye", nombre: "Joaquín", rol: "Mapeador y diseño del continente" },
-  { nick: "turkheN", nombre: "Juani", rol: "Eventos en vivo y soporte" },
-  { nick: "Bynereo", nombre: "Nicolás", rol: "Eventos en vivo y soporte" },
+// El primero es el director y se muestra en grande.
+export const staff: { nick: string; nombre: string; cargo: string; tarea: string }[] = [
+  { nick: "Benedict", nombre: "Tomás", cargo: "Director del proyecto", tarea: "Fundador y desarrollador principal" },
+  { nick: "NidwaZ", nombre: "Tobías", cargo: "Co-Director del proyecto", tarea: "Dirección del juego junto a Benedict" },
+  { nick: "rAzer", nombre: "Tom", cargo: "Programador de Discord", tarea: "Bot y comunidad de Discord" },
 ]
 
 // Ciclo de eventos automaticos del servidor (uno cada 15 minutos).
