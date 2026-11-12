@@ -8,12 +8,12 @@ export const enlaces = {
   trailer: "-13-ApdmUk4",
 }
 
-// Cuando este el instalador nuevo: poner su enlace en `directa` (y, si hay, un
-// espejo en `espejo`) y el peso. Con `directa` vacio la web avisa que esta en preparacion.
-export const descarga: { directa: string; espejo: string; peso: string } = {
+// Instalador del juego. `directa` baja el .exe sin pasar por otra pagina; `mediafire` es el espejo.
+// Si los dos estan vacios la web avisa que el instalador esta en preparacion.
+export const descarga: { directa: string; mediafire: string; peso: string } = {
   directa: "",
-  espejo: "",
-  peso: "",
+  mediafire: "https://www.mediafire.com/file/ql0ay0q51e63zvs/TrhynumAO_2.0_Instalador.exe/file",
+  peso: "47 MB",
 }
 
 export const requisitos: [string, string][] = [

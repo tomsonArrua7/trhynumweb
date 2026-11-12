@@ -164,14 +164,21 @@ export default function Inicio() {
             <h2>Descargá el juego</h2>
             <div className="descarga">
               <div>
-                {descarga.directa ? (
+                {descarga.directa || descarga.mediafire ? (
                   <div className="acciones">
-                    <a className="boton boton-principal" href={descarga.directa}>
-                      Descargar el instalador {descarga.peso && <small>{descarga.peso}</small>}
-                    </a>
-                    {descarga.espejo && (
-                      <a className="boton" href={descarga.espejo} target="_blank" rel="noopener noreferrer">
-                        Enlace alternativo
+                    {descarga.directa && (
+                      <a className="boton boton-principal" href={descarga.directa} download>
+                        Descargar el instalador {descarga.peso && <small>{descarga.peso}</small>}
+                      </a>
+                    )}
+                    {descarga.mediafire && (
+                      <a
+                        className={descarga.directa ? "boton" : "boton boton-principal"}
+                        href={descarga.mediafire}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Descargar desde MediaFire {!descarga.directa && descarga.peso && <small>{descarga.peso}</small>}
                       </a>
                     )}
                   </div>
@@ -188,7 +195,7 @@ export default function Inicio() {
                     </div>
                   </>
                 )}
-                {descarga.directa && (
+                {(descarga.directa || descarga.mediafire) && (
                   <ol className="pasos">
                     <li>Ejecutá el instalador. Si Windows pregunta, permitilo: es un programa sin firma.</li>
                     <li>Abrí TrhynumAO y creá tu cuenta desde la pantalla de inicio.</li>
